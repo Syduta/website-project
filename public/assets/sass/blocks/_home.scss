@@ -1,7 +1,9 @@
-h1, h4{
+h1{
   color: $primary-color;
 }
-
+h4{
+  color: $second-color;
+}
 #news{
   display: inline-block;
   padding: 3vw ;
