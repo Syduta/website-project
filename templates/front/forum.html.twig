@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+
+
+    <article>
+        <h2>{{ forum.title }}</h2>
+        {% if forum.picture %}
+            <img src="{{ asset('uploads/images/')~forum.picture }}" alt="picture of the subject">
+        {% endif %}
+        <p>{{ forum.content }}</p>
+    </article>
+    {% if app.user %}<p>Add new subject</p>
+    {{ form(form) }}{% endif %}
+    {% for subject in forum.subjects %}
+    <article>
+        <h4>{{ subject.title }}</h4>
+        <p>{{ subject.content }}</p>
+        <p>subject opened the {{ subject.date|date('M-d-y') }}</p>
+        {% if app.user %}<a href="{{ path('comment',{'id':subject.id}) }}">Add a comment</a>{% endif %}
+    </article>
+    {% for comment in subject.comment %}
+    <article>
+        <h5>{{ comment.comment }}</h5>
+        <p>by {{ comment.user.pseudo }}</p>
+        <p>comment added the {{ comment.date|date('M-d-y') }}</p>
+    </article>
+    {% endfor %}
+    {% endfor %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
+        <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+    {% endif %}
+{% endblock %}

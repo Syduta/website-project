@@ -1,0 +1,150 @@
+nav {
+  background-color: #204C52;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  padding: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+nav a:hover {
+  color: #22B99A;
+}
+
+h1, h4 {
+  color: #204C52;
+}
+
+#news {
+  display: inline-block;
+  padding: 3vw;
+  margin: auto;
+}
+
+.news {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.news img {
+  width: 15vw;
+  height: 20vh;
+  border-radius: 10%;
+}
+
+.news p, h4 {
+  width: 15vw;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  background-color: #22B99A;
+  color: #FFFFFF;
+  border: solid 1px #204C52;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+}
+
+#games {
+  display: flex;
+  display: inline-block;
+  padding: 2vw;
+  margin: 2vw 2vw;
+}
+
+.games {
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.games img {
+  width: 15vw;
+  height: 20vh;
+  border-radius: 10%;
+}
+
+.games p, h4 {
+  width: 15vw;
+  text-align: center;
+}
+
+#forums {
+  display: flex;
+  display: inline-block;
+  padding: 2vw;
+  margin: 2vw 2vw;
+}
+
+.forums {
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.forums img {
+  width: 15vw;
+  height: 20vh;
+  border-radius: 10%;
+}
+
+.forums p, h4 {
+  width: 15vw;
+  text-align: center;
+}
+
+.carousel {
+  margin-top: 4rem;
+}
+
+.car-img {
+  height: 70vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../img/greypattern.jpg");
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  border-radius: 50%;
+  width: 4rem;
+}
+
+.sign-in {
+  background-image: url("../img/image-sign-in.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.sign-in .form {
+  background-color: #FFFFFF;
+  border-radius: 10%;
+  border: solid 2px #22B99A;
+  position: absolute;
+  bottom: 25%;
+}
+
+/*# sourceMappingURL=style.css.map */

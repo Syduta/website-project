@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+        {% for new in news %}
+
+            <article>
+                <a href="{{ path('new',{'id':new.id}) }}">
+                <h2>{{ new.title }}</h2>
+                {% if new.picture %}
+                <img src="{{ asset('uploads/images/'~new.picture) }}" alt="picture of the subject">
+                {% endif %}
+                </a>
+                <p>{{ new.content }}</p>
+            </article>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
+                <li><a href="{{ path('admin-update-actu',{'id':new.id}) }}">Update actu</a></li>
+            {% endif %}
+
+        {% endfor %}
+
+{% endblock %}

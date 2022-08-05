@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    {% for game in games.results %}
+        <article>
+            <a href="{{ path('game',{'id':game.id}) }}">
+                <h2>{{ game.name }}</h2>
+                <img style="width: 25vw" src="{{ game.background_image }}" alt="">
+            </a>
+        </article>
+    {% endfor %}
+
+    {% for new in news %}
+        <article>
+            <a href="{{ path('new',{'id':new.id}) }}">
+                <h2>{{ new.title }}</h2>
+                {% if new.picture %}
+                    <img src="{{ asset('uploads/images/')~new.picture }}" alt="picture of the subject">
+                {% endif %}
+            </a>
+            <p>{{ new.content }}</p>
+        </article>
+    {% endfor %}
+
+    {% for forum in forums %}
+        <article>
+            <a href="{{ path('forum',{'id':forum.id}) }}">
+                <h2>{{ forum.title }}</h2>
+                {% if forum.picture %}
+                    <img src="{{ asset('uploads/images/')~forum.picture }}" alt="picture of the subject">
+                {% endif %}
+            </a>
+            <p>{{ forum.content }}</p>
+        </article>
+    {% endfor %}
+
+
+{% endblock %}

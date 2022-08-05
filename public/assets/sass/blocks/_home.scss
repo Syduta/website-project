@@ -1,0 +1,81 @@
+h1, h4{
+  color: $primary-color;
+}
+
+#news{
+  display: inline-block;
+  padding: 3vw ;
+  margin: auto;
+}
+
+.news{
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.news img{
+  width: 15vw;
+  height:20vh;
+  border-radius: 10%;
+}
+.news p, h4{
+  width: 15vw;
+  text-align: center;
+}
+h3{
+  text-align: center;
+  background-color: $second-color;
+  color: $bright-color;
+  border: solid 1px $primary-color;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+}
+
+#games{
+  display: flex;
+  display: inline-block;
+  padding: 2vw;
+  margin: 2vw 2vw;
+}
+
+.games{
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.games img{
+  width: 15vw;
+  height:20vh;
+  border-radius: 10%;
+}
+.games p, h4{
+  width: 15vw;
+  text-align: center;
+}
+
+#forums{
+  display: flex;
+  display: inline-block;
+  padding: 2vw;
+  margin: 2vw 2vw;
+}
+
+.forums{
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.forums img{
+  width: 15vw;
+  height:20vh;
+  border-radius: 10%;
+}
+.forums p, h4{
+  width: 15vw;
+  text-align: center;
+}
+.carousel{
+  margin-top: 4rem;
+}
+.car-img {
+  height: 70vh;
+}

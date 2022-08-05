@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+
+    <article>
+        <a href="{{ path('game',{'id':game.id}) }}">
+            <h2>{{ game.name }}</h2>
+            <img style="width: 25vw" src="{{ game.background_image }}" alt="">
+        </a>
+        {% for tag in game.tags |slice(5,10) %}
+            {% if tag.language is same as ('eng') %}
+                <p>{{ tag.name }}</p>
+            {% endif %}
+        {% endfor%}
+        <p>Released in {{ game.released |date('d-M-y') }}</p>
+        {% if game.metacritic %}
+            <p>Metacritic note {{ game.metacritic }}</p>
+        {% endif %}
+    </article>
+
+{% endblock %}

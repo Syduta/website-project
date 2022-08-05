@@ -1,0 +1,37 @@
+@import "var/colors";
+@import "blocks/header";
+@import "blocks/home";
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-image: url("../img/greypattern.jpg");
+}
+a{
+  text-decoration: none;
+}
+.logo{
+  border-radius: 50%;
+  width: 4rem;
+}
+
+.sign-in{
+  background-image: url("../img/image-sign-in.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.sign-in .form{
+  background-color: $bright-color;
+  border-radius: 10%;
+  border: solid 2px $second-color;
+  position: absolute;
+  bottom: 25%;
+}
