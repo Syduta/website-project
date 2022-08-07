@@ -1,8 +1,8 @@
 h1{
-  color: $primary-color;
+  color: $bright-color;
 }
 h4{
-  color: $second-color;
+  color: $bright-color;
 }
 #news{
   display: inline-block;
@@ -25,11 +25,17 @@ h4{
 }
 h3{
   text-align: center;
-  background-color: $second-color;
+  background-color: chocolate;
   color: $bright-color;
-  border: solid 1px $primary-color;
+  border: solid 1px $bright-color;
   padding: 0.5rem 0;
   margin-top: 2rem;
+}
+
+.more-news{
+  color: $bright-color;
+  font-size: medium;
+  margin-right: 3vw;
 }
 
 #games{

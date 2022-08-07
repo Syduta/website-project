@@ -1,6 +1,7 @@
 @import "var/colors";
 @import "blocks/header";
 @import "blocks/home";
+@import "blocks/background";
 
 
 
@@ -30,8 +31,9 @@ a{
 
 .sign-in .form{
   background-color: $bright-color;
-  border-radius: 10%;
+  border-radius: 5%;
   border: solid 2px $second-color;
   position: absolute;
-  bottom: 25%;
+  bottom: 22.5%;
+  padding: 1rem;
 }

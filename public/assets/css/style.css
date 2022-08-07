@@ -22,11 +22,11 @@ nav a:hover {
 }
 
 h1 {
-  color: #204C52;
+  color: #FFFFFF;
 }
 
 h4 {
-  color: #22B194;
+  color: #FFFFFF;
 }
 
 #news {
@@ -53,11 +53,17 @@ h4 {
 
 h3 {
   text-align: center;
-  background-color: #22B194;
+  background-color: chocolate;
   color: #FFFFFF;
-  border: solid 1px #204C52;
+  border: solid 1px #FFFFFF;
   padding: 0.5rem 0;
   margin-top: 2rem;
+}
+
+.more-news {
+  color: #FFFFFF;
+  font-size: medium;
+  margin-right: 3vw;
 }
 
 #games {
@@ -116,6 +122,35 @@ h3 {
   height: 70vh;
 }
 
+.bbg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #204C52 50%, #22B194 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bbg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bbg3 {
+  animation-duration: 5s;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -145,10 +180,11 @@ a {
 
 .sign-in .form {
   background-color: #FFFFFF;
-  border-radius: 10%;
+  border-radius: 5%;
   border: solid 2px #22B194;
   position: absolute;
-  bottom: 25%;
+  bottom: 22.5%;
+  padding: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

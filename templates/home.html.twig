@@ -53,8 +53,10 @@
             <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
             <li><a href="{{ path('admin-update-actu',{'id':new.id}) }}">Update actu</a></li>
         {% endif %}
-
     {% endfor %}
+        <div class="col-10 d-flex justify-content-center">
+    <a class="more-news" href="{{ path('news') }}">See more news</a>
+        </div>
     </div>
     <h3 class="offset-1 col-10">Hot Games</h3>
     {% for game in games.results %}

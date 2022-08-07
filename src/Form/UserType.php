@@ -21,7 +21,12 @@ class UserType extends AbstractType
 //            ->add('roles')
             ->add('password',RepeatedType::class,[
                 'type'=>PasswordType::class,
-                'invalid_message'=>'Passwords should be the same'
+                'invalid_message'=>'Passwords should be the same',
+                'options'=>['attr'=>['class'=>'password-field']],
+                'required'=>true,
+                'first_options'=>['label'=>'Password'],
+                'second_options'=>['label'=>'Repeat password'],
+
             ])
             ->add('email')
             ->add('picture',FileType::class,['mapped'=>false])
