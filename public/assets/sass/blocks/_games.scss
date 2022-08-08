@@ -1,0 +1,37 @@
+.games-article{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.games-article img{
+  max-width: 65%;
+  min-width: 65%;
+  height: auto;
+}
+
+.games-article h2{
+  text-align: center;
+  background-color: chocolate;
+  color: $bright-color;
+  border: solid 1px $bright-color;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+  border-radius: 2rem;
+}
+.games-article p{
+  color: $bright-color;
+}
+.border{
+  border-style: solid 1px $bright-color;
+  margin-top: 2rem;
+}
+
+.games-button{
+  background-color: chocolate;
+  color: $primary-color;
+  border-radius: 2rem;
+  padding: 0 1rem;
+}
+.games-button:hover{
+  color: $bright-color;
+}

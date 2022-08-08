@@ -3,10 +3,11 @@
 {% block main %}
 
     {% for game in games.results %}
-        <article>
+        <article class="games-article">
             <a href="{{ path('game',{'id':game.id}) }}">
                 <h2>{{ game.name }}</h2>
-                <img style="width: 25vw" src="{{ game.background_image }}" alt="">
+                <div class="offset-2 col-8 text-center">
+                <img src="{{ game.background_image }}" alt="">
             </a>
             {% for tag in game.tags |slice(5,10) %}
                 {% if tag.language is same as ('eng') %}
@@ -16,6 +17,7 @@
             <p>Released in {{ game.released |date('d-M-y') }}</p>
             {% if game.metacritic %}
                 <p>Metacritic note {{ game.metacritic }}</p>
+                </div>
             {% endif %}
         </article>
     {% endfor %}

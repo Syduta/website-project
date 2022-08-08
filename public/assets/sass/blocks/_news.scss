@@ -1,0 +1,27 @@
+.news-article{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+ .news-article img{
+   max-width: 75%;
+   min-width: 75%;
+   height: auto;
+ }
+
+ .news-article h2{
+   text-align: center;
+   background-color: chocolate;
+   color: $bright-color;
+   border: solid 1px $bright-color;
+   padding: 0.5rem 0;
+   margin-top: 2rem;
+   border-radius: 2rem;
+ }
+ .news-article p{
+   color: $bright-color;
+ }
+ .border{
+   border-style: solid 1px $bright-color;
+   margin-top: 2rem;
+ }

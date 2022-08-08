@@ -4,9 +4,10 @@
 
     {% for forum in forums %}
 
-        <article>
+        <article class="forums-article">
             <a href="{{ path('forum',{'id':forum.id}) }}">
             <h2>{{ forum.title }}</h2>
+            <div class="offset-2 col-8 text-center">
             {% if forum.picture %}
                 <img src="{{ asset('uploads/images/'~forum.picture) }}" alt="picture of the subject">
             {% endif %}
@@ -16,6 +17,7 @@
         {% if is_granted('ROLE_ADMIN') %}
             <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
             <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+            </div>
         {% endif %}
 
     {% endfor %}

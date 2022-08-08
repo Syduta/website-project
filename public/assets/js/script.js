@@ -13,3 +13,19 @@ connexion.addEventListener('click',function(event){
         event.preventDefault()
     }
 });
+
+const newSub = document.querySelector('.pop-sub');
+console.log(newSub);
+const popForm = document.querySelector('.pop-form');
+console.log(popForm);
+newSub.addEventListener('click',function(event){
+    if(popForm.classList.contains('d-none')){
+        popForm.classList.remove('d-none');
+        newSub.classList.add('d-none');
+        event.preventDefault()
+    }else{
+        popForm.classList.add('d-none');
+        newSub.classList.remove('d-none');
+        event.preventDefault()
+    }
+});

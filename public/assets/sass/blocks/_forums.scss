@@ -1,0 +1,38 @@
+.forums-article{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.forums-article img{
+  max-width: 65%;
+  min-width: 65%;
+  height: auto;
+}
+
+.forums-article h2{
+  text-align: center;
+  background-color: chocolate;
+  color: $bright-color;
+  border: solid 1px $bright-color;
+  padding: 0.5rem 0;
+  margin: 2rem;
+  border-radius: 2rem;
+
+}
+.forums-article p{
+  color: $bright-color;
+}
+.pop-sub{
+  border: solid $bright-color 1px;
+  background-color: chocolate;
+  color: $bright-color;
+}
+
+.border{
+  background-color: $bright-color;
+  color: $primary-color;
+}
+
+.sub-title{
+  color: chocolate;
+}

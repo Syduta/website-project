@@ -4,14 +4,18 @@
 
         {% for new in news %}
 
-            <article>
+            <article class="news-article">
                 <a href="{{ path('new',{'id':new.id}) }}">
                 <h2>{{ new.title }}</h2>
+                <div class="border">
+                <div class="offset-2 col-10">
                 {% if new.picture %}
                 <img src="{{ asset('uploads/images/'~new.picture) }}" alt="picture of the subject">
                 {% endif %}
                 </a>
-                <p>{{ new.content }}</p>
+                <p class="text-center col-9">{{ new.content }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio fugit, ipsa modi necessitatibus nemo nulla repellat voluptate voluptates voluptatibus? Consequuntur eaque labore, odit rem rerum vel! Accusantium asperiores consectetur, deleniti, eius ex harum inventore, laudantium nisi nulla placeat sed voluptates voluptatum. At ipsa labore odit perspiciatis possimus quidem, soluta.</p>
+                </div>
+                </div>
             </article>
             {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
