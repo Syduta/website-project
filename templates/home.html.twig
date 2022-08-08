@@ -2,7 +2,7 @@
 
 {% block main %}
 
-    <h1 class="text-center">Welcome {% if app.user %} {{ app.user.pseudo }} <a href="{{ path('update-profile') }}"><img style="width: 3vw"
+    <h1 class="text-center">Welcome {% if app.user %} {{ app.user.pseudo }} <a href="{{ path('update-profile') }}"><img class="user-img"
                                                                                  src="{{ asset('uploads/images/'~app.user.picture) }}"
                                                                                  alt=""></a> {% endif %} on this place where
         we love video-games</h1>
@@ -20,7 +20,7 @@
                 <div class="carousel-item {% if loop.index0 ==0 %} active {% endif %}">
                     <a href="{{ path('new',{'id':new.id}) }}"><img class="car-img d-block w-100" src="{{ asset('uploads/images/'~new.picture) }}" alt="{{ new.title }}"></a>
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>{{ new.title }}</h5>
+                        <h4 class="car-title">{{ new.title }}</h4>
                     </div>
                 </div>
                 {% endfor %}
@@ -35,6 +35,7 @@
             </a>
         </div>
     </section>
+    <section>
     <div class="offset-2 col-10">
     {% for new in news |slice (4,12) %}
         <article id="news">
@@ -55,13 +56,15 @@
         {% endif %}
     {% endfor %}
         <div class="col-10 d-flex justify-content-center">
-    <a class="more-news" href="{{ path('news') }}">See more news</a>
+    <a class="more more-news" href="{{ path('news') }}">See more news</a>
         </div>
     </div>
+    </section>
+    <section>
     <h3 class="offset-1 col-10">Hot Games</h3>
     {% for game in games.results %}
         <article id="games">
-            <div class="games">
+            <div class="games offset-5 col-10">
                 <a href="{{ path('game',{'id':game.id}) }}">
                     <h4>{{ game.name }}</h4>
                     <img class="img-responsive" src="{{ game.background_image }}" alt="">
@@ -78,8 +81,13 @@
             </div>
         </article>
     {% endfor %}
-
-    <h3 class="offset-1 col-10">Latest forums</h3>
+    <div class="offset-1 col-10 d-flex justify-content-center">
+    <a class="more more-games" href="{{ path('games') }}">See more games</a>
+    </div>
+    </section>
+    <section>
+        <h3 class="offset-1 col-10">Latest forums</h3>
+        <div class="offset-2 col-9">
     {% for forum in forums %}
 
         <article id="forums">
@@ -99,6 +107,22 @@
         {% endif %}
 
     {% endfor %}
+            <div class="offset-1 col-10 d-flex justify-content-center">
+                <a class="more more-forums" href="{{ path('forums') }}">See more forums</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
 
-
+{% block footer %}
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="{{ path('home') }}"><img class="logo img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
+                <li><a href="{{ path('news') }}">News</a></li>
+                <li><a href="{{ path('games') }}">Games</a></li>
+                <li><a href="{{ path('forums') }}">Forums</a></li>
+            </ul>
+        </nav>
+    </footer>
 {% endblock %}

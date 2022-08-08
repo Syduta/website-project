@@ -1,3 +1,7 @@
+.user-img{
+  width: 3vw;
+  border-radius: 50%;
+}
 h1{
   color: $bright-color;
 }
@@ -16,8 +20,7 @@ h4{
 }
 .news img{
   width: 15vw;
-  height:20vh;
-  border-radius: 10%;
+  border-radius: 2rem;
 }
 .news p, h4{
   width: 15vw;
@@ -30,6 +33,7 @@ h3{
   border: solid 1px $bright-color;
   padding: 0.5rem 0;
   margin-top: 2rem;
+  border-radius: 2rem;
 }
 
 .more-news{
@@ -41,8 +45,7 @@ h3{
 #games{
   display: flex;
   display: inline-block;
-  padding: 2vw;
-  margin: 2vw 2vw;
+  padding: 3rem 1rem;
 }
 
 .games{
@@ -52,7 +55,7 @@ h3{
 }
 .games img{
   width: 15vw;
-  height:20vh;
+  height: 10rem;
   border-radius: 10%;
 }
 .games p, h4{
@@ -60,11 +63,16 @@ h3{
   text-align: center;
 }
 
+.more-games{
+  color: $bright-color;
+  font-size: medium;
+}
+
 #forums{
   display: flex;
   display: inline-block;
   padding: 2vw;
-  margin: 2vw 2vw;
+  margin: 2vw 1vw;
 }
 
 .forums{
@@ -74,7 +82,7 @@ h3{
 }
 .forums img{
   width: 15vw;
-  height:20vh;
+  height: 10rem;
   border-radius: 10%;
 }
 .forums p, h4{
@@ -85,5 +93,26 @@ h3{
   margin-top: 4rem;
 }
 .car-img {
-  height: 70vh;
+  height: 60vh;
+}
+
+.car-title{
+  display: inline-block;
+  text-align: center;
+  background-color: $primary-color;
+  color: $bright-color;
+  border: solid 1px $bright-color;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  width: auto;
+}
+.more-forums{
+  color: $bright-color;
+  font-size: medium;
+  margin-right: 8vw;
+  margin-bottom: 2vh;
+}
+
+.more:hover{
+  color: chocolate;
 }

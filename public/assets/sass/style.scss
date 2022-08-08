@@ -29,11 +29,10 @@ a{
   height: 100vh;
 }
 
-.sign-in .form{
+.form{
   background-color: $bright-color;
-  border-radius: 5%;
+  border-radius: 2rem;
   border: solid 2px $second-color;
   position: absolute;
-  bottom: 22.5%;
   padding: 1rem;
 }
