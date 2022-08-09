@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -28,7 +29,7 @@ class UserType extends AbstractType
                 'second_options'=>['label'=>'Repeat password'],
 
             ])
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('picture',FileType::class,['mapped'=>false])
             ->add('submit',SubmitType::class)
         ;

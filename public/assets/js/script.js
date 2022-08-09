@@ -1,7 +1,5 @@
 const connexion = document.querySelector('.connexion');
-console.log(connexion);
 const lico = document.querySelector('.li-connexion');
-console.log(lico);
 connexion.addEventListener('click',function(event){
     if(lico.classList.contains('d-none')){
         lico.classList.remove('d-none');
@@ -15,9 +13,7 @@ connexion.addEventListener('click',function(event){
 });
 
 const newSub = document.querySelector('.pop-sub');
-console.log(newSub);
 const popForm = document.querySelector('.pop-form');
-console.log(popForm);
 newSub.addEventListener('click',function(event){
     if(popForm.classList.contains('d-none')){
         popForm.classList.remove('d-none');
