@@ -4,13 +4,11 @@
 
     <article class="news-article">
             <h2>{{ new.title }}</h2>
-            <div class="border">
             <div class="offset-2 col-10">
             {% if new.picture %}
                 <img src="{{ asset('uploads/images/')~new.picture }}" alt="picture of the subject">
             {% endif %}
         <p class="text-center col-9">{{ new.content }}</p>
-            </div>
             </div>
     </article>
     {% if is_granted('ROLE_ADMIN') %}

@@ -21,11 +21,26 @@ console.log(popForm);
 newSub.addEventListener('click',function(event){
     if(popForm.classList.contains('d-none')){
         popForm.classList.remove('d-none');
-        newSub.classList.add('d-none');
         event.preventDefault()
     }else{
         popForm.classList.add('d-none');
-        newSub.classList.remove('d-none');
         event.preventDefault()
     }
+});
+
+const displayComments = document.querySelectorAll('.sub-title');
+console.log(displayComments);
+const comments = document.querySelectorAll('.comments');
+console.log(comments);
+Array.from(displayComments).forEach(c=>{
+    c.addEventListener('click',function(event){
+        for (i=0; i<comments.length; i++){
+            if (comments[i].classList.contains('d-none')) {
+                comments[i].classList.remove('d-none');
+                event.preventDefault();
+            } else {
+                comments[i].classList.add('d-none');
+                event.preventDefault();
+            }
+        }})
 });

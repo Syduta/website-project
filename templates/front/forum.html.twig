@@ -1,54 +1,61 @@
 {% extends 'base.html.twig' %}
 {% block main %}
 
-
-    <article class="forums-article">
+<article class="forums-article">
         <h2>{{ forum.title }}</h2>
         <div class="offset-2 col-8 text-center">
         {% if forum.picture %}
             <img src="{{ asset('uploads/images/')~forum.picture }}" alt="picture of the subject">
         {% endif %}
         <p>{{ forum.content }}</p>
+        </div>
     </article>
     {% if app.user %}<p class="text-center pop-sub">Add new subject</p>
         <div class=" form text-center offset-4 col-4 pop-form d-none">{{ form(form) }}</div>
     {% endif %}
     {% for subject in forum.subjects %}
+
     <article>
         <table class="border offset-2 col-8">
             <tr>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Opened the</th>
+                <th colspan="2">Subject title</th>
+                <th colspan="8">Content</th>
+                <th colspan="1">Opened the</th>
+                <th colspan="1">By</th>
             </tr>
             <tr>
-                <td><h4 class="sub-title">{{ subject.title }}</h4></td>
-                <td><p>{{ subject.content }}</p></td>
-                <td><p>{{ subject.date|date('M-d-y') }}</p></td>
+                <td colspan="2"><h4 class="sub-title offset-1">{{ subject.title }}</h4></td>
+                <td colspan="8"><p>{{ subject.content }}</p></td>
+                <td colspan="1"><p>{{ subject.date|date('M-d-y') }}</p></td>
+                <td colspan="1"><p>{{ subject.user.pseudo }}</p></td>
             </tr>
+
         </table>
-        {% if app.user %}<a href="{{ path('comment',{'id':subject.id}) }}">Add a comment</a>{% endif %}
     </article>
+
     {% for comment in subject.comment %}
-    <article>
-        <table class="border offset-2 col-8">
-            <tr>
-                <th>Comment</th>
-                <th>By</th>
-                <th>Opened the</th>
-            </tr>
-            <tr>
-                <td><h5>{{ comment.comment }}</h5></td>
-                <td><p>by {{ comment.user.pseudo }}</p></td>
-                <td><p>{{ comment.date|date('M-d-y') }}</p></td>
-            </tr>
-        </table>
-    </article>
+        <div class="comments d-none">
+            <article>
+                <table class="border offset-2 col-8">
+                    <tr>
+                        <th colspan="10">Comment</th>
+                        <th colspan="1">By</th>
+                        <th colspan="1">Opened the</th>
+                    </tr>
+                    <tr>
+                        <td colspan="10"><h5 class="offset-1">{{ comment.comment }}</h5></td>
+                        <td colspan="1"><p>{{ comment.date|date('M-d-y') }}</p></td>
+                        <td colspan="1"><p>{{ comment.user.pseudo }}</p></td>
+                    </tr>
+                </table>
+            </article>
+        </div>
     {% endfor %}
+        {% if app.user %}<a class="forums-button offset-2 col-8 text-center" href="{{ path('comment',{'id':subject.id}) }}">Add a comment</a>{% endif %}
     {% endfor %}
     {% if is_granted('ROLE_ADMIN') %}
         <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
         <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
-        </div>
     {% endif %}
+
 {% endblock %}

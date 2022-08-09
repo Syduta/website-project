@@ -15,11 +15,14 @@
   color: $bright-color;
   border: solid 1px $bright-color;
   padding: 0.5rem 0;
-  margin-top: 2rem;
+  margin: 3rem;
   border-radius: 2rem;
 }
 .games-article p{
   color: $bright-color;
+}
+.game-desc{
+  margin-top: 3rem;
 }
 .border{
   border-style: solid 1px $bright-color;

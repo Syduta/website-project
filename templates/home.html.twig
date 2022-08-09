@@ -2,10 +2,11 @@
 
 {% block main %}
 
-    <h1 class="text-center">Welcome {% if app.user %} {{ app.user.pseudo }} <a href="{{ path('update-profile') }}"><img class="user-img"
-                                                                                 src="{{ asset('uploads/images/'~app.user.picture) }}"
-                                                                                 alt=""></a> {% endif %} on this place where
-        we love video-games</h1>
+    <h1 class="text-center">Welcome {% if app.user %} {{ app.user.pseudo }}
+            <a href="{{ path('update-profile') }}">
+                <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}"alt="">
+            </a> {% endif %} on this place where we love video-games
+    </h1>
 
     <h3 class="offset-1 col-10">Fresh News</h3>
     <section id="carousel">

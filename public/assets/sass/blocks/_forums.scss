@@ -15,7 +15,7 @@
   color: $bright-color;
   border: solid 1px $bright-color;
   padding: 0.5rem 0;
-  margin: 2rem;
+  margin: 3rem;
   border-radius: 2rem;
 
 }
@@ -29,10 +29,23 @@
 }
 
 .border{
-  background-color: $bright-color;
-  color: $primary-color;
+  color: $bright-color;
+  background-color: $second-color;
 }
 
 .sub-title{
+  color: $primary-color;
+}
+.sub-title:hover{
   color: chocolate;
+}
+
+.forums-button{
+  display: block;
+  background-color: chocolate;
+  color: $primary-color;
+  padding: 0 1rem;
+}
+.forums-button:hover{
+  color: $bright-color;
 }

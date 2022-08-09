@@ -97,10 +97,7 @@ class FrontController extends AbstractController
             'subject'=>$subject,
             'form'=>$form->createView(),
         ]);
-
     }
-
-
 
     /**
      * @Route("/update-profile",name="update-profile")
