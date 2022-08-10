@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Unique;
@@ -18,8 +19,7 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('pseudo')
-//            ->add('roles')
+            ->add('pseudo', TextType::class)
             ->add('password',RepeatedType::class,[
                 'type'=>PasswordType::class,
                 'invalid_message'=>'Passwords should be the same',
@@ -27,7 +27,6 @@ class UserType extends AbstractType
                 'required'=>true,
                 'first_options'=>['label'=>'Password'],
                 'second_options'=>['label'=>'Repeat password'],
-
             ])
             ->add('email', EmailType::class)
             ->add('picture',FileType::class,['mapped'=>false])
