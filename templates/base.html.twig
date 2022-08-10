@@ -18,31 +18,31 @@
 <header>
     <nav>
 {#    desktop navbar#}
-{#        <ul>#}
-{#            <li><a href="{{ path('home') }}"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>#}
-{#            <li class="connexion"><a href="">Connexion</a></li>#}
-{#            <div  class="li-connexion d-none">#}
-{#                {% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}#}
-{#                <li><a href="{{ path('log-in') }}">Log-in</a></li>#}
-{#                {% if app.user %}<li><a href="{{ path('log-out') }}">Log-out</a></li>{% endif %}#}
-{#            </div>#}
-{#            {% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}#}
-{#                <li><a href="{{ path('news') }}">News</a></li>#}
-{#                <li><a href="{{ path('games') }}">Games</a></li>#}
-{#                <li><a href="{{ path('forums') }}">Forums</a></li>#}
-{#                <li><form action="{{ path('find') }}" method="get">#}
-{#                        <input type="text" name="search" placeholder="">#}
-{#                        <input type="submit" value="Search">#}
-{#                    </form>#}
-{#                </li>#}
-{#            {% if is_granted('ROLE_ADMIN') %}#}
-{#                <li><a href="{{ path('admin-new-actu') }}">admin create actu</a></li>#}
-{#                <li><a href="{{ path('admin-new-forum') }}">admin create forum</a></li>#}
-{#            {% endif %}#}
-{#        </ul>#}
+        <ul class="menu-desk">
+            <li><a href="{{ path('home') }}"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
+            <li class="connexion"><a href="">Connexion</a></li>
+            <div  class="li-connexion d-none">
+                {% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}
+                <li><a href="{{ path('log-in') }}">Log-in</a></li>
+                {% if app.user %}<li><a href="{{ path('log-out') }}">Log-out</a></li>{% endif %}
+            </div>
+            {% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}
+                <li><a href="{{ path('news') }}">News</a></li>
+                <li><a href="{{ path('games') }}">Games</a></li>
+                <li><a href="{{ path('forums') }}">Forums</a></li>
+                <li><form action="{{ path('find') }}" method="get">
+                        <input type="text" name="search" placeholder="">
+                        <input type="submit" value="Search">
+                    </form>
+                </li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('admin-new-actu') }}">admin create actu</a></li>
+                <li><a href="{{ path('admin-new-forum') }}">admin create forum</a></li>
+            {% endif %}
+        </ul>
 {#        mobile navbar#}
         <ul>
-            <li><a href="{{ path('home') }}"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
+            <li><a href="{{ path('home') }}"><img class="logo logo-burg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
             <a id="burger"><img class="logoburger" src="https://icon-library.com/images/hamburger-menu-icon-png-white/hamburger-menu-icon-png-white-10.jpg" alt=""></a>
             <ul class="d-none menu-burg">
                 <li class="connexion"><a href="">Connexion</a></li>

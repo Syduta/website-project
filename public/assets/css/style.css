@@ -22,7 +22,7 @@ nav a:hover {
 }
 
 .user-img {
-  width: 3vh;
+  width: 5vh;
   border-radius: 50%;
 }
 
@@ -311,7 +311,72 @@ h3 {
   color: #FFFFFF;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 1280px) {
+  #burger {
+    display: none;
+  }
+  .logo-burg {
+    display: none;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .menu-desk {
+    display: none;
+  }
+  .logoburger {
+    width: 4rem;
+    border-radius: 2rem;
+  }
+  .car-img {
+    height: 25vh;
+  }
+  #news {
+    display: inline-block;
+    padding: 3vw;
+    margin: 0 20vw;
+  }
+  .news p, h4 {
+    width: 80vw;
+    padding-top: 2rem;
+    margin-left: -30vw;
+  }
+  .news img {
+    width: 80vw;
+    border-radius: 2rem;
+    margin-left: -30vw;
+  }
+  #games {
+    width: 80vw;
+    padding-top: 0;
+  }
+  .games img {
+    width: 80vw;
+    height: 20rem !important;
+    border-radius: 10%;
+    margin-left: -24vw;
+  }
+  .games h4 {
+    margin: 0 -22.5vw;
+  }
+  .forums {
+    width: 80vw;
+  }
+  .forums img {
+    width: 80vw;
+    height: 20rem;
+    margin-left: -10vw;
+  }
+  .forums h4 {
+    margin-left: -10vw;
+  }
+  .car-title {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 810px) {
+  .menu-desk {
+    display: none;
+  }
   ul {
     padding: 0;
   }
@@ -343,7 +408,7 @@ h3 {
   }
   .games img {
     width: 80vw;
-    height: 10rem;
+    height: 10rem !important;
     border-radius: 10%;
     margin-left: -24vw;
   }
@@ -355,6 +420,7 @@ h3 {
   }
   .forums img {
     width: 80vw;
+    height: 10rem;
     margin-left: -10vw;
   }
   .forums h4 {
