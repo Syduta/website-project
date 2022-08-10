@@ -1,3 +1,14 @@
+const burger = document.getElementById('burger');
+console.log(burger);
+const menu = document.querySelector('.menu-burg');
+burger.addEventListener('click',function () {
+    if(menu.classList.contains('d-none')){
+        menu.classList.remove('d-none');
+    }else{
+        menu.classList.add('d-none');
+    }
+});
+
 const connexion = document.querySelector('.connexion');
 const lico = document.querySelector('.li-connexion');
 connexion.addEventListener('click',function(event){
