@@ -23,12 +23,20 @@ nav a:hover {
 }
 
 .user-img {
-  height: 5vh;
+  height: 1.5rem;
   border-radius: 50%;
 }
 
 h1 {
   color: #FFFFFF;
+}
+
+h3 {
+  color: #FFFFFF;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+  border-top: 1rem solid chocolate;
+  border-radius: 2rem;
 }
 
 h4 {
@@ -54,14 +62,6 @@ h4 {
 .news p, h4 {
   width: 15vw;
   text-align: center;
-}
-
-h3 {
-  color: #FFFFFF;
-  padding: 0.5rem 0;
-  margin-top: 2rem;
-  border-top: 1rem solid chocolate;
-  border-radius: 2rem;
 }
 
 .more-news {
@@ -299,6 +299,10 @@ h3 {
   color: #FFFFFF;
 }
 
+.pop-sub:hover {
+  color: #204C52;
+}
+
 .border {
   color: #FFFFFF;
   background-color: #22B194;
@@ -339,7 +343,7 @@ h3 {
     display: none;
   }
   .logoburger {
-    width: 4rem;
+    height: 3vh;
     border-radius: 2rem;
   }
   .car-img {
@@ -356,19 +360,19 @@ h3 {
     margin-left: -30vw;
   }
   .news img {
-    width: 80vw;
+    width: 60vw;
     border-radius: 2rem;
-    margin-left: -30vw;
+    margin-left: -20vw;
   }
   #games {
     width: 80vw;
     padding-top: 0;
   }
   .games img {
-    width: 80vw;
+    width: 60vw;
     height: 20rem !important;
     border-radius: 10%;
-    margin-left: -24vw;
+    margin-left: -14vw;
   }
   .games h4 {
     margin: 0 -22.5vw;
@@ -377,9 +381,8 @@ h3 {
     width: 80vw;
   }
   .forums img {
-    width: 80vw;
+    width: 60vw;
     height: 20rem;
-    margin-left: -10vw;
   }
   .forums h4 {
     margin-left: -10vw;
@@ -396,7 +399,7 @@ h3 {
     padding: 0;
   }
   .logoburger {
-    width: 4rem;
+    width: 3vh;
     border-radius: 2rem;
   }
   .car-img {
@@ -441,7 +444,27 @@ h3 {
   .forums h4 {
     margin-left: -10vw;
   }
+  h2, h3 {
+    text-align: center;
+  }
 }
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+a:hover {
+  color: chocolate;
+}
+
+p {
+  color: #FFFFFF;
+}
+
 * {
   margin: 0;
   padding: 0;

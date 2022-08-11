@@ -100,6 +100,15 @@ class FrontController extends AbstractController
     }
 
     /**
+     * @Route("/connexion",name="connexion")
+     */
+
+    public function connexion(){
+        $user = $this->getUser();
+        return $this->render('connexion/connexion.html.twig');
+    }
+
+    /**
      * @Route("/update-profile",name="update-profile")
      */
 

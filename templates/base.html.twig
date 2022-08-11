@@ -28,13 +28,13 @@
                         <input type="submit" value="Search">
                     </form>
                 </li>
-            <li class="connexion"><a href="">Connexion</a></li>
-            <div  class="li-connexion d-none">
-                {% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}
-                {% if not app.user %}<li><a href="{{ path('log-in') }}">Log-in</a></li>{% endif %}
-                {% if app.user %}<li><a href="{{ path('log-out') }}">Log-out</a></li>{% endif %}
-                {% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}
-            </div>
+            <li class="connexion"><a href="{{ path('connexion') }}">Connexion</a></li>
+            <li>{% if app.user %}
+                        <a href="{{ path('update-profile') }}">
+                            <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}" alt="">
+                        </a>
+                    </h3>
+                {% endif %}</li>
             {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="{{ path('admin-new-actu') }}">admin create actu</a></li>
                 <li><a href="{{ path('admin-new-forum') }}">admin create forum</a></li>
@@ -47,13 +47,12 @@
             <li class="logo-burg"><a href="{{ path('home') }}"><img class="logo logo-burg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
             <a id="burger"><img class="logoburger" src="https://icon-library.com/images/hamburger-menu-icon-png-white/hamburger-menu-icon-png-white-10.jpg" alt=""></a>
             <ul class="menu-burg">
-                <li class="connexion"><a href="">Connexion</a></li>
                     <div  class="li-connexion d-none">
                         {% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}
-                        <li><a href="{{ path('log-in') }}">Log-in</a></li>
+                        {% if not app.user %}<li><a href="{{ path('log-in') }}">Log-in</a></li>{% endif %}
                         {% if app.user %}<li><a href="{{ path('log-out') }}">Log-out</a></li>{% endif %}
+                        {% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}
                     </div>
-            {% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}
                             <li><a href="{{ path('news') }}">News</a></li>
                             <li><a href="{{ path('games') }}">Games</a></li>
                             <li><a href="{{ path('forums') }}">Forums</a></li>
@@ -62,6 +61,13 @@
                                     <input type="submit" value="Search">
                                 </form>
                             </li>
+                <li class="connexion"><a href="{{ path('connexion') }}">Connexion</a></li>
+                <li>{% if app.user %}
+                            <a href="{{ path('update-profile') }}">
+                                <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}" alt="">
+                            </a>
+                        </h3>
+                    {% endif %}</li>
             </ul>
 
         </ul>
@@ -71,9 +77,9 @@
         <div>
             {% if app.user %}
                 <h3>{{ message }}
-                <a href="{{ path('update-profile') }}">
-                <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}" alt="">
-                </a>
+{#                <a href="{{ path('update-profile') }}">#}
+{#                <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}" alt="">#}
+{#                </a>#}
                 </h3>
             {% endif %}
         </div>

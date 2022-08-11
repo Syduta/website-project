@@ -1,13 +1,21 @@
 .user-img{
-  height: 5vh;
+  height: 1.5rem;
   border-radius: 50%;
 }
 h1{
   color: $bright-color;
 }
+h3{
+  color: $bright-color;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+  border-top: 1rem solid chocolate;
+  border-radius: 2rem;
+}
 h4{
   color: $bright-color;
 }
+
 #news{
   display: inline-block;
   padding: 3vw ;
@@ -25,13 +33,6 @@ h4{
 .news p, h4{
   width: 15vw;
   text-align: center;
-}
-h3{
-  color: $bright-color;
-  padding: 0.5rem 0;
-  margin-top: 2rem;
-  border-top: 1rem solid chocolate;
-  border-radius: 2rem;
 }
 
 .more-news{

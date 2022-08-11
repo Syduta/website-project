@@ -9,19 +9,19 @@ burger.addEventListener('click',function () {
     }
 });
 
-const connexion = document.querySelector('.connexion');
-const lico = document.querySelector('.li-connexion');
-connexion.addEventListener('click',function(event){
-    if(lico.classList.contains('d-none')){
-        lico.classList.remove('d-none');
-        connexion.classList.add('d-none');
-        event.preventDefault()
-    }else{
-        lico.classList.add('d-none');
-        connexion.classList.remove('d-none');
-        event.preventDefault()
-    }
-});
+// const connexion = document.querySelector('.connexion');
+// const lico = document.querySelector('.li-connexion');
+// connexion.addEventListener('click',function(event){
+//     if(lico.classList.contains('d-none')){
+//         lico.classList.remove('d-none');
+//         connexion.classList.add('d-none');
+//         event.preventDefault()
+//     }else{
+//         lico.classList.add('d-none');
+//         connexion.classList.remove('d-none');
+//         event.preventDefault()
+//     }
+// });
 
 const newSub = document.querySelector('.pop-sub');
 const popForm = document.querySelector('.pop-form');
