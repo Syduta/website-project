@@ -1,5 +1,5 @@
 .user-img{
-  width: 5vh;
+  height: 5vh;
   border-radius: 50%;
 }
 h1{
@@ -27,12 +27,10 @@ h4{
   text-align: center;
 }
 h3{
-  text-align: center;
-  background-color: chocolate;
   color: $bright-color;
-  border: solid 1px $bright-color;
   padding: 0.5rem 0;
   margin-top: 2rem;
+  border-top: 1rem solid chocolate;
   border-radius: 2rem;
 }
 
@@ -89,15 +87,30 @@ h3{
   width: 15vw;
   text-align: center;
 }
-.carousel{
-  margin-top: 4rem;
+.carousel {
+  /*
+    TEST LIMOU
+    J'ai rajouté une hauteur au parent des images,
+    ce qui permet de garder une même hauteur lorsque le carousel change d'image
+   */
+  //height: 80vh;
+  //
+
+  margin-top: 4rem; // => c'était là avant test limou
+
+  /*
+    TEST LIMOU
+   */
+  .carousel-inner img {
+    object-fit: cover;  // => l'image prend toute la taille de son parent ("contain" affichera l'image entière adaptée à son parent)
+  }
+  //
 }
 .car-img {
   height: 60vh;
 }
 
 .car-title{
-  display: inline-block;
   text-align: center;
   background-color: $primary-color;
   color: $bright-color;
@@ -105,6 +118,9 @@ h3{
   border-radius: 2rem;
   padding: 0.5rem 1rem;
   width: auto;
+}
+.car-title:hover{
+  color: chocolate;
 }
 .more-forums{
   color: $bright-color;

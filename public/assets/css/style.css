@@ -1,3 +1,4 @@
+@charset "UTF-8";
 nav {
   background-color: #204C52;
   text-align: center;
@@ -22,7 +23,7 @@ nav a:hover {
 }
 
 .user-img {
-  width: 5vh;
+  height: 5vh;
   border-radius: 50%;
 }
 
@@ -56,12 +57,10 @@ h4 {
 }
 
 h3 {
-  text-align: center;
-  background-color: chocolate;
   color: #FFFFFF;
-  border: solid 1px #FFFFFF;
   padding: 0.5rem 0;
   margin-top: 2rem;
+  border-top: 1rem solid chocolate;
   border-radius: 2rem;
 }
 
@@ -124,7 +123,18 @@ h3 {
 }
 
 .carousel {
+  /*
+    TEST LIMOU
+    J'ai rajouté une hauteur au parent des images,
+    ce qui permet de garder une même hauteur lorsque le carousel change d'image
+   */
   margin-top: 4rem;
+  /*
+    TEST LIMOU
+   */
+}
+.carousel .carousel-inner img {
+  object-fit: cover;
 }
 
 .car-img {
@@ -132,7 +142,6 @@ h3 {
 }
 
 .car-title {
-  display: inline-block;
   text-align: center;
   background-color: #204C52;
   color: #FFFFFF;
@@ -140,6 +149,10 @@ h3 {
   border-radius: 2rem;
   padding: 0.5rem 1rem;
   width: auto;
+}
+
+.car-title:hover {
+  color: chocolate;
 }
 
 .more-forums {
@@ -189,18 +202,17 @@ h3 {
 }
 
 .news-article img {
-  max-width: 75%;
-  min-width: 75%;
-  height: auto;
+  width: 65vw;
+  height: 40vh;
+  object-fit: contain;
+  overflow: hidden;
 }
 
 .news-article h2 {
-  text-align: center;
-  background-color: chocolate;
   color: #FFFFFF;
-  border: solid 1px #FFFFFF;
   padding: 0.5rem 0;
   margin: 3rem;
+  border-top: 1rem solid chocolate;
   border-radius: 2rem;
 }
 
@@ -316,6 +328,9 @@ h3 {
     display: none;
   }
   .logo-burg {
+    display: none;
+  }
+  .menu-burg {
     display: none;
   }
 }
@@ -443,7 +458,7 @@ a {
 
 .logo {
   border-radius: 50%;
-  width: 4rem;
+  height: 1.5rem;
 }
 
 .sign-in {

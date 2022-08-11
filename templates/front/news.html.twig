@@ -7,10 +7,10 @@
             <article class="news-article">
                 <a href="{{ path('new',{'id':new.id}) }}">
                 <h2>{{ new.title }}</h2>
-                <div class="offset-2 col-10">
-                {% if new.picture %}
-                <img src="{{ asset('uploads/images/'~new.picture) }}" alt="picture of the subject">
-                {% endif %}
+                <div class="offset-2 col-10 pic">
+                        {% if new.picture %}
+                        <img src="{{ asset('uploads/images/'~new.picture) }}" alt="picture of the subject">
+                        {% endif %}
                 </a>
                 <p class="text-center col-9">{{ new.content }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio fugit, ipsa modi necessitatibus nemo nulla repellat voluptate voluptates voluptatibus? Consequuntur eaque labore, odit rem rerum vel! Accusantium asperiores consectetur, deleniti, eius ex harum inventore, laudantium nisi nulla placeat sed voluptates voluptatum. At ipsa labore odit perspiciatis possimus quidem, soluta.</p>
                 </div>

@@ -21,7 +21,7 @@
                 <div class="carousel-item {% if loop.index0 ==0 %} active {% endif %}">
                     <a href="{{ path('new',{'id':new.id}) }}"><img class="car-img d-block w-100" src="{{ asset('uploads/images/'~new.picture) }}" alt="{{ new.title }}"></a>
                     <div class="carousel-caption d-none d-md-block">
-                        <h4 class="car-title">{{ new.title }}</h4>
+                        <a href="{{ path('new',{'id':new.id}) }}"><h4 class="car-title">{{ new.title }}</h4></a>
                     </div>
                 </div>
                 {% endfor %}
