@@ -32,9 +32,6 @@
   .news-article h2{
     margin: 3vh 2vw;
   }
-  .news-article p{
-    margin: 0 1vw;
-  }
 
   .news p, h4{
     width: 80vw;
@@ -43,7 +40,8 @@
   }
   .news img{
     border-radius: 2rem;
-    margin-left: -20vw;
+    margin-left: -30vw;
+    width: 80vw;
   }
 
   #games{
@@ -109,7 +107,7 @@
     margin-left: -30vw;
   }
   .news img{
-    //width: 80vw;
+    width: 80vw;
     border-radius: 2rem;
     margin-left: -30vw;
   }

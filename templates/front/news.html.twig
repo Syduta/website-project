@@ -13,13 +13,15 @@
                         <img src="{{ asset('uploads/images/'~new.picture) }}" alt="picture of the subject">
                         {% endif %}
                 </a>
-                <p class="text-center col-9">{{ new.content }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio fugit, ipsa modi necessitatibus nemo nulla repellat voluptate voluptates voluptatibus? Consequuntur eaque labore, odit rem rerum vel! Accusantium asperiores consectetur, deleniti, eius ex harum inventore, laudantium nisi nulla placeat sed voluptates voluptatum. At ipsa labore odit perspiciatis possimus quidem, soluta.</p>
                 </div>
+                <p class="text-center offset-1 col-10">{{ new.content }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium distinctio fugit, ipsa modi necessitatibus nemo nulla repellat voluptate voluptates voluptatibus? Consequuntur eaque labore, odit rem rerum vel! Accusantium asperiores consectetur, deleniti, eius ex harum inventore, laudantium nisi nulla placeat sed voluptates voluptatum. At ipsa labore odit perspiciatis possimus quidem, soluta.</p>
 {#                </div>#}
             </article>
             {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
-                <li><a href="{{ path('admin-update-actu',{'id':new.id}) }}">Update actu</a></li>
+                <div class="admin">
+                    <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
+                    <li><a href="{{ path('admin-update-actu',{'id':new.id}) }}">Update actu</a></li>
+                </div>
             {% endif %}
 
         {% endfor %}

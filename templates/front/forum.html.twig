@@ -53,8 +53,10 @@
         {% if app.user %}<a class="forums-button offset-2 col-8 text-center" href="{{ path('comment',{'id':subject.id}) }}">Add a comment</a>{% endif %}
     {% endfor %}
     {% if is_granted('ROLE_ADMIN') %}
-        <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
-        <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+        <div class="admin">
+            <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
+            <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+        </div>
     {% endif %}
 
 {% endblock %}

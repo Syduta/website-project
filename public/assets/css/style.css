@@ -22,6 +22,12 @@ nav a:hover {
   color: #22B194;
 }
 
+.admin {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
 .user-img {
   height: 1.5rem;
   border-radius: 50%;
@@ -195,6 +201,12 @@ h4 {
     transform: translateX(25%);
   }
 }
+.admin {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
 .news-article {
   display: flex;
   flex-wrap: wrap;
@@ -223,7 +235,7 @@ h4 {
 
 .news-article p {
   color: #FFFFFF;
-  margin: 2rem 1rem 0;
+  margin-top: 1rem;
 }
 
 .games-article {
@@ -270,6 +282,12 @@ h4 {
 
 .games-button:hover {
   color: #FFFFFF;
+}
+
+.admin {
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 .forums-article {
@@ -362,9 +380,6 @@ h4 {
   .news-article h2 {
     margin: 3vh 2vw;
   }
-  .news-article p {
-    margin: 0 1vw;
-  }
   .news p, h4 {
     width: 80vw;
     padding-top: 2rem;
@@ -372,7 +387,8 @@ h4 {
   }
   .news img {
     border-radius: 2rem;
-    margin-left: -20vw;
+    margin-left: -30vw;
+    width: 80vw;
   }
   #games {
     width: 80vw;
@@ -426,6 +442,7 @@ h4 {
     margin-left: -30vw;
   }
   .news img {
+    width: 80vw;
     border-radius: 2rem;
     margin-left: -30vw;
   }

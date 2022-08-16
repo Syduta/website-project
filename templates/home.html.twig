@@ -40,6 +40,12 @@
             <div class="news">
                 <a href="{{ path('new',{'id':new.id}) }}">
                     <h4>{{ new.title }}</h4>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="admin">
+                <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
+                <li><a href="{{ path('admin-update-actu',{'id':new.id}) }}">Update actu</a></li>
+            </div>
+        {% endif %}
                     {% if new.picture %}
                         <img class="img-responsive" src="{{ asset('uploads/images/'~new.picture) }}"
                              alt="picture of the subject">
@@ -48,10 +54,6 @@
                 {#            <p>{{ new.content }}</p> #}
             </div>
         </article>
-        {% if is_granted('ROLE_ADMIN') %}
-            <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
-            <li><a href="{{ path('admin-update-actu',{'id':new.id}) }}">Update actu</a></li>
-        {% endif %}
     {% endfor %}
         <div class="col-10 d-flex justify-content-center">
     <a class="more more-news" href="{{ path('news') }}">See more news</a>
@@ -92,6 +94,12 @@
             <div class="forums">
                 <a href="{{ path('forum',{'id':forum.id}) }}">
                     <h4>{{ forum.title }}</h4>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="admin">
+                <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
+                <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+            </div>
+        {% endif %}
                     {% if forum.picture %}
                         <img src="{{ asset('uploads/images/'~forum.picture) }}" alt="picture of the subject">
                     {% endif %}
@@ -99,10 +107,6 @@
                 {#                    <p>{{ forum.content }}</p> #}
             </div>
         </article>
-        {% if is_granted('ROLE_ADMIN') %}
-            <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
-            <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
-        {% endif %}
 
     {% endfor %}
             <div class="offset-1 col-10 d-flex justify-content-center">
