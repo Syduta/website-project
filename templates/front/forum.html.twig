@@ -21,7 +21,7 @@
             <button class="accordion">{{ subject.title }}</button>
             <div class="panel d-none">
     {% for comment in subject.comment %}
-        <p class="comments">{{ comment.comment }} added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
+        <h3 class="comments">{{ comment.comment }}</h3><p>added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
     {% endfor %}
             </div>
             </div>
