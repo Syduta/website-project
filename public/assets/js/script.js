@@ -39,7 +39,7 @@ const displayComments = document.querySelectorAll('.sub-title');
 console.log(displayComments);
 const comments = document.querySelectorAll('.comments');
 console.log(comments);
-Array.from(displayComments).forEach(c=>{
+displayComments.forEach(c=>{
     c.addEventListener('click',function(event){
         for (i=0; i<comments.length; i++){
             if (comments[i].classList.contains('d-none')) {
