@@ -15,7 +15,7 @@ h3{
   color: $bright-color;
   padding: 0.5rem 0;
   margin-top: 2rem;
-  border-top: 1rem solid chocolate;
+  border-top: 1rem solid $chocolate;
   border-radius: 2rem;
 }
 h4{
@@ -95,23 +95,12 @@ h4{
   text-align: center;
 }
 .carousel {
-  /*
-    TEST LIMOU
-    J'ai rajouté une hauteur au parent des images,
-    ce qui permet de garder une même hauteur lorsque le carousel change d'image
-   */
-  //height: 80vh;
-  //
 
-  margin-top: 4rem; // => c'était là avant test limou
+  margin-top: 4rem;
 
-  /*
-    TEST LIMOU
-   */
-  .carousel-inner img {
-    object-fit: cover;  // => l'image prend toute la taille de son parent ("contain" affichera l'image entière adaptée à son parent)
-  }
-  //
+}
+.carousel-inner img {
+  object-fit: cover;
 }
 .car-img {
   height: 60vh;
@@ -127,7 +116,7 @@ h4{
   width: auto;
 }
 .car-title:hover{
-  color: chocolate;
+  color: $chocolate;
 }
 .more-forums{
   color: $bright-color;
@@ -137,5 +126,5 @@ h4{
 }
 
 .more:hover{
-  color: chocolate;
+  color: $chocolate;
 }

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 nav {
   background-color: #204C52;
   text-align: center;
@@ -129,17 +128,10 @@ h4 {
 }
 
 .carousel {
-  /*
-    TEST LIMOU
-    J'ai rajouté une hauteur au parent des images,
-    ce qui permet de garder une même hauteur lorsque le carousel change d'image
-   */
   margin-top: 4rem;
-  /*
-    TEST LIMOU
-   */
 }
-.carousel .carousel-inner img {
+
+.carousel-inner img {
   object-fit: cover;
 }
 

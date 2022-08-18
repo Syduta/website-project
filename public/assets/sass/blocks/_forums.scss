@@ -16,7 +16,7 @@
 
 .forums-article h2{
   text-align: center;
-  background-color: chocolate;
+  background-color: $chocolate;
   color: $bright-color;
   border: solid 1px $bright-color;
   padding: 0.5rem 0;
@@ -29,7 +29,7 @@
 }
 .pop-sub{
   border: solid $bright-color 1px;
-  background-color: chocolate;
+  background-color: $chocolate;
   color: $bright-color;
 }
 .pop-sub:hover{
@@ -45,12 +45,12 @@
   color: $primary-color;
 }
 .sub-title:hover{
-  color: chocolate;
+  color: $chocolate;
 }
 
 .forums-button{
   display: block;
-  background-color: chocolate;
+  background-color: $chocolate;
   color: $primary-color;
   padding: 0 1rem;
 }

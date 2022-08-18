@@ -11,7 +11,7 @@
 
 .games-article h2{
   text-align: center;
-  background-color: chocolate;
+  background-color: $chocolate;
   color: $bright-color;
   border: solid 1px $bright-color;
   padding: 0.5rem 0;
@@ -30,7 +30,7 @@
 }
 
 .games-button{
-  background-color: chocolate;
+  background-color: $chocolate;
   color: $primary-color;
   border-radius: 2rem;
   padding: 0 1rem;
