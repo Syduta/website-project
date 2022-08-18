@@ -6,7 +6,8 @@
 .games-article img{
   max-width: 65%;
   min-width: 65%;
-  height: auto;
+  height: 55vh;
+  object-fit: cover;
 }
 
 .games-article h2{

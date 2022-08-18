@@ -21,7 +21,15 @@
             <button class="accordion">{{ subject.title }}</button>
             <div class="panel d-none">
     {% for comment in subject.comment %}
+        {% if comment.isPublished %}
+        <div id="comment">
         <h3 class="comments">{{ comment.comment }}</h3><p>added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
+        </div>
+            {% if is_granted('ROLE_ADMIN') %}
+                <button><a href="{{ path('hide-comment',{'id':comment.id}) }}">Hide comment</a></button>
+            {% endif %}
+
+        {% endif %}
     {% endfor %}
             </div>
             </div>

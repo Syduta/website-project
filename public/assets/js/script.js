@@ -29,19 +29,10 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 
-const displayComments = document.querySelectorAll('.sub-title');
-console.log(displayComments);
-const comments = document.querySelectorAll('.comments');
-console.log(comments);
-displayComments.forEach(c=>{
-    c.addEventListener('click',function(event){
-        for (i=0; i<comments.length; i++){
-            if (comments[i].classList.contains('d-none')) {
-                comments[i].classList.remove('d-none');
-                event.preventDefault();
-            } else {
-                comments[i].classList.add('d-none');
-                event.preventDefault();
-            }
-        }})
-});
+function comment(a)
+{
+    if(a==1)
+        document.getElementById("comment").classList.add('d-none');
+    else
+        document.getElementById("comment").classList.remove('d-none');
+}

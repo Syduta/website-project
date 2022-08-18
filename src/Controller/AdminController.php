@@ -3,12 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Actuality;
+use App\Entity\Comment;
 use App\Entity\Forum;
 use App\Entity\User;
 use App\Form\ActualityType;
+use App\Form\CommentType;
 use App\Form\ForumType;
 use App\Repository\ActualityRepository;
+use App\Repository\CommentRepository;
 use App\Repository\ForumRepository;
+use App\Repository\SubjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -152,5 +156,21 @@ class AdminController extends AbstractController
             $this->addFlash('success','forum updated');
         }
         return $this->render("admin/update-forum.html.twig",['form'=>$form->createView()]);
+    }
+
+    /**
+     * @Route("/hide-comment/{id}",name="hide-comment")
+     */
+
+    public function hideComment($id, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository, CommentRepository $commentRepository)
+    {
+        $comment = $commentRepository->find($id);
+        $comment->setIsPublished(0);
+
+            $entityManager->persist($comment);
+            $entityManager->flush();
+            $this->addFlash('success','comment hidden');
+
+        return $this->redirectToRoute('forums');
     }
 }
