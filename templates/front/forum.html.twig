@@ -16,41 +16,18 @@
     {% for subject in forum.subjects %}
 
     <article>
-        <table class="border offset-2 col-8">
-            <tr>
-                <th colspan="2">Subject title</th>
-                <th colspan="8">Content</th>
-                <th colspan="1">Opened the</th>
-                <th colspan="1">By</th>
-            </tr>
-            <tr>
-                <td colspan="2"><h4 class="sub-title offset-1">{{ subject.title }}</h4></td>
-                <td colspan="8"><p>{{ subject.content }}</p></td>
-                <td colspan="1"><p>{{ subject.date|date('M-d-y') }}</p></td>
-                <td colspan="1"><p>{{ subject.user.pseudo }}</p></td>
-            </tr>
-        </table>
-    </article>
-
+        <div id="accordion">
+            <div class="offset-2 col-8 text-center">
+            <button class="accordion">{{ subject.title }}</button>
+            <div class="panel d-none">
     {% for comment in subject.comment %}
-        <div class="comments d-none">
-            <article>
-                <table class="border offset-2 col-8">
-                    <tr>
-                        <th colspan="10">Comment</th>
-                        <th colspan="1">By</th>
-                        <th colspan="1">Opened the</th>
-                    </tr>
-                    <tr>
-                        <td colspan="10"><h5 class="offset-1">{{ comment.comment }}</h5></td>
-                        <td colspan="1"><p>{{ comment.date|date('M-d-y') }}</p></td>
-                        <td colspan="1"><p>{{ comment.user.pseudo }}</p></td>
-                    </tr>
-                </table>
-            </article>
-        </div>
+        <p class="comments">{{ comment.comment }} added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
     {% endfor %}
-        {% if app.user %}<a class="forums-button offset-2 col-8 text-center" href="{{ path('comment',{'id':subject.id}) }}">Add a comment</a>{% endif %}
+            </div>
+            </div>
+        </div>
+    </article>
+        {% if app.user %}<a class="forums-button offset-3 col-6 text-center" href="{{ path('comment',{'id':subject.id}) }}">Add a comment</a>{% endif %}
     {% endfor %}
     {% if is_granted('ROLE_ADMIN') %}
         <div class="admin">

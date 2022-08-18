@@ -31,6 +31,8 @@
   border: solid $bright-color 1px;
   background-color: $chocolate;
   color: $bright-color;
+  border-radius: 2rem;
+
 }
 .pop-sub:hover{
   color: $primary-color;
@@ -53,7 +55,14 @@
   background-color: $chocolate;
   color: $primary-color;
   padding: 0 1rem;
+  border-radius: 2rem;
+
 }
 .forums-button:hover{
   color: $bright-color;
+}
+.accordion{
+  width: 50vw;
+  border-radius: 2rem;
+  margin-top: 1rem;
 }

@@ -312,6 +312,7 @@ h4 {
   border: solid #FFFFFF 1px;
   background-color: chocolate;
   color: #FFFFFF;
+  border-radius: 2rem;
 }
 
 .pop-sub:hover {
@@ -336,10 +337,17 @@ h4 {
   background-color: chocolate;
   color: #204C52;
   padding: 0 1rem;
+  border-radius: 2rem;
 }
 
 .forums-button:hover {
   color: #FFFFFF;
+}
+
+.accordion {
+  width: 50vw;
+  border-radius: 2rem;
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 1280px) {

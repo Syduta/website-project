@@ -1,3 +1,4 @@
+// js menu burger
 const burger = document.getElementById('burger');
 console.log(burger);
 const menu = document.querySelector('.menu-burg');
@@ -8,32 +9,25 @@ burger.addEventListener('click',function () {
         menu.classList.add('d-none');
     }
 });
+// js afficher/cacher commentaires forum
+var acc = document.getElementsByClassName("accordion");
 
-// const connexion = document.querySelector('.connexion');
-// const lico = document.querySelector('.li-connexion');
-// connexion.addEventListener('click',function(event){
-//     if(lico.classList.contains('d-none')){
-//         lico.classList.remove('d-none');
-//         connexion.classList.add('d-none');
-//         event.preventDefault()
-//     }else{
-//         lico.classList.add('d-none');
-//         connexion.classList.remove('d-none');
-//         event.preventDefault()
-//     }
-// });
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
 
-const newSub = document.querySelector('.pop-sub');
-const popForm = document.querySelector('.pop-form');
-newSub.addEventListener('click',function(event){
-    if(popForm.classList.contains('d-none')){
-        popForm.classList.remove('d-none');
-        event.preventDefault()
-    }else{
-        popForm.classList.add('d-none');
-        event.preventDefault()
-    }
-});
+        /* Toggle between hiding and showing the active panel */
+        const divAccordion = this.closest("#accordion");
+        const panel = divAccordion.querySelector(".panel");
+        if (panel.classList.contains("d-none")) {
+            panel.classList.remove('d-none');
+        } else {
+            panel.classList.add('d-none');
+        }
+    });
+}
 
 const displayComments = document.querySelectorAll('.sub-title');
 console.log(displayComments);
