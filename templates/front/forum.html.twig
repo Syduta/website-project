@@ -26,7 +26,7 @@
         <h3 class="comments">{{ comment.comment }}</h3><p>added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
         </div>
             {% if is_granted('ROLE_ADMIN') %}
-                <button><a href="{{ path('hide-comment',{'id':comment.id}) }}">Hide comment</a></button>
+                <button class="hide-button"><a href="{{ path('hide-comment',{'id':comment.id}) }}">Hide comment</a></button>
             {% endif %}
 
         {% endif %}
