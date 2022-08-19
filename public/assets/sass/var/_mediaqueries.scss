@@ -87,6 +87,23 @@
   .car-title{
     margin-left: 0;
   }
+
+  .games-find img{
+    margin-left: 15vw;
+    max-width: 65%;
+    min-width: 65%;
+    object-fit: cover;
+  }
+
+  .games-find h2{
+    text-align: center;
+    background-color: $chocolate;
+    color: $bright-color;
+    border: solid 1px $bright-color;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    margin-left: 21vw !important;
+  }
 }
 
 @media screen and (max-width: 810px){
@@ -162,5 +179,22 @@
   }
   h2, h3{
     text-align: center;
+  }
+
+  .games-find img{
+    margin-left: 15vw;
+    max-width: 65%;
+    min-width: 65%;
+    object-fit: cover;
+  }
+
+  .games-find h2{
+    text-align: center;
+    background-color: $chocolate;
+    color: $bright-color;
+    border: solid 1px $bright-color;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    margin-left: 30vw !important;
   }
 }

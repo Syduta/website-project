@@ -1,0 +1,15 @@
+.games-find img{
+  max-width: 65%;
+  min-width: 65%;
+  object-fit: cover;
+}
+
+.games-find h2{
+  text-align: center;
+  background-color: $chocolate;
+  color: $bright-color;
+  border: solid 1px $bright-color;
+  padding: 0.5rem 0;
+  margin: 3rem;
+  border-radius: 2rem;
+}

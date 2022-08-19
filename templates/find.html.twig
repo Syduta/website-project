@@ -4,9 +4,9 @@
 
     {% for game in games.results %}
         <article id="games">
-            <div class="games-article text-center">
+            <div class="games-find text-center">
             <a href="{{ path('game',{'id':game.id}) }}">
-                <h2>{{ game.name }}</h2>
+                <h2 class="text-center">{{ game.name }}</h2>
                 <img src="{{ game.background_image }}" alt="">
             </a>
             </div>

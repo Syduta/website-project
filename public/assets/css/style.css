@@ -436,6 +436,21 @@ h4 {
   .car-title {
     margin-left: 0;
   }
+  .games-find img {
+    margin-left: 15vw;
+    max-width: 65%;
+    min-width: 65%;
+    object-fit: cover;
+  }
+  .games-find h2 {
+    text-align: center;
+    background-color: chocolate;
+    color: #FFFFFF;
+    border: solid 1px #FFFFFF;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    margin-left: 21vw !important;
+  }
 }
 @media screen and (max-width: 810px) {
   .menu-desk {
@@ -501,6 +516,21 @@ h4 {
   h2, h3 {
     text-align: center;
   }
+  .games-find img {
+    margin-left: 15vw;
+    max-width: 65%;
+    min-width: 65%;
+    object-fit: cover;
+  }
+  .games-find h2 {
+    text-align: center;
+    background-color: chocolate;
+    color: #FFFFFF;
+    border: solid 1px #FFFFFF;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    margin-left: 30vw !important;
+  }
 }
 li {
   list-style: none;
@@ -517,6 +547,22 @@ a:hover {
 
 p {
   color: #FFFFFF;
+}
+
+.games-find img {
+  max-width: 65%;
+  min-width: 65%;
+  object-fit: cover;
+}
+
+.games-find h2 {
+  text-align: center;
+  background-color: chocolate;
+  color: #FFFFFF;
+  border: solid 1px #FFFFFF;
+  padding: 0.5rem 0;
+  margin: 3rem;
+  border-radius: 2rem;
 }
 
 * {
