@@ -76,11 +76,7 @@
     {% for message in app.flashes('success') %}
         <div>
             {% if app.user %}
-                <h3>{{ message }}
-{#                <a href="{{ path('update-profile') }}">#}
-{#                <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}" alt="">#}
-{#                </a>#}
-                </h3>
+                <h3>{{ message }}</h3>
             {% endif %}
         </div>
     {% endfor %}

@@ -55,7 +55,7 @@
             </div>
         </article>
     {% endfor %}
-        <div class="col-10 d-flex justify-content-center">
+        <div class="offset-2 col-5 text-center">
     <a class="more more-news" href="{{ path('news') }}">See more news</a>
         </div>
     </div>
@@ -72,38 +72,37 @@
             </div>
         </article>
     {% endfor %}
-    <div class="offset-1 col-10 d-flex justify-content-center">
+    <div class="offset-1 col-10 text-center">
     <a class="more more-games" href="{{ path('games') }}">See more games</a>
     </div>
     </section>
     <section>
         <h3 class="offset-1 col-10">Latest forums</h3>
-        <div class="offset-2 col-9">
+        <div class="text-center offset-2 col-8">
     {% for forum in forums %}
 
         <article id="forums">
             <div class="forums">
-                <a href="{{ path('forum',{'id':forum.id}) }}">
-                    <h4>{{ forum.title }}</h4>
-        {% if is_granted('ROLE_ADMIN') %}
-            <div class="admin">
-                <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
-                <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
-            </div>
-        {% endif %}
-                    {% if forum.picture %}
-                        <img src="{{ asset('uploads/images/'~forum.picture) }}" alt="picture of the subject">
-                    {% endif %}
-                </a>
-                {#                    <p>{{ forum.content }}</p> #}
+                    <a href="{{ path('forum',{'id':forum.id}) }}">
+                        <h4>{{ forum.title }}</h4>
+            {% if is_granted('ROLE_ADMIN') %}
+                <div class="admin">
+                    <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
+                    <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+                </div>
+            {% endif %}
+                        {% if forum.picture %}
+                            <img src="{{ asset('uploads/images/'~forum.picture) }}" alt="picture of the subject">
+                        {% endif %}
+                    </a>
             </div>
         </article>
 
     {% endfor %}
-            <div class="offset-1 col-10 d-flex justify-content-center">
+        </div>
+            <div class="text-center offset-2 col-8 more-forums">
                 <a class="more more-forums" href="{{ path('forums') }}">See more forums</a>
             </div>
-        </div>
     </section>
 {% endblock %}
 

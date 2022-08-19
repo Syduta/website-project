@@ -72,7 +72,6 @@ h4 {
 .more-news {
   color: #FFFFFF;
   font-size: medium;
-  margin-right: 3vw;
 }
 
 #games {
@@ -156,8 +155,7 @@ h4 {
 .more-forums {
   color: #FFFFFF;
   font-size: medium;
-  margin-right: 8vw;
-  margin-bottom: 2vh;
+  margin-bottom: 2rem;
 }
 
 .more:hover {
