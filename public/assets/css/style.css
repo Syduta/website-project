@@ -25,6 +25,8 @@ nav a:hover {
   padding: 0;
   margin: 0;
   text-align: center;
+  background-color: darkred;
+  border-radius: 1rem;
 }
 
 .user-img {
@@ -406,6 +408,12 @@ h4 {
     width: 80vw;
     padding-top: 0;
   }
+  .games img {
+    width: 80vw;
+    height: 20rem;
+    border-radius: 10%;
+    margin-left: -23vw;
+  }
   .games-article img {
     width: 80vw;
     height: 20rem;
@@ -420,6 +428,7 @@ h4 {
   .forums img {
     width: 60vw;
     height: 20rem;
+    margin-left: -22.5vw;
   }
   .forums h4 {
     margin-left: -10vw;
@@ -465,6 +474,11 @@ h4 {
     width: 80vw;
     padding-top: 0;
   }
+  .games img {
+    width: 80vw;
+    height: 10rem;
+    border-radius: 10%;
+  }
   .games-article img {
     width: 80vw;
     height: 10rem;
@@ -479,7 +493,7 @@ h4 {
   .forums img {
     width: 80vw;
     height: 10rem;
-    margin-left: -10vw;
+    margin-left: -20vw;
   }
   .forums h4 {
     margin-left: -10vw;

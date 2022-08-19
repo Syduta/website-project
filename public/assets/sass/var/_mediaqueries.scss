@@ -54,6 +54,12 @@
     padding-top: 0;
   }
 
+  .games img{
+    width: 80vw;
+    height: 20rem;
+    border-radius: 10%;
+    margin-left: -23vw
+  }
   .games-article img{
     width: 80vw;
     height: 20rem;
@@ -70,6 +76,8 @@
   .forums img{
     width: 60vw;
     height: 20rem;
+    margin-left: -22.5vw
+
   }
 
   .forums h4{
@@ -125,12 +133,16 @@
     padding-top: 0;
     }
 
+  .games img{
+    width: 80vw;
+    height: 10rem;
+    border-radius: 10%;
+  }
   .games-article img{
     width: 80vw;
     height: 10rem;
     border-radius: 10%;
   }
-
   .games h4{
     margin: 0 -22.5vw;
   }
@@ -142,7 +154,7 @@
   .forums img{
     width: 80vw;
     height: 10rem;
-    margin-left: -10vw;
+    margin-left: -20vw;
   }
 
   .forums h4{
