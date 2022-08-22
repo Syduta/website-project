@@ -17,7 +17,6 @@ class HomeController extends AbstractController
 
     public function home(GameApi $gameApi, ActualityRepository $actualityRepository, ForumRepository $forumRepository){
 
-//        dd($gameApi->getGames());
         $games = $gameApi->getGamesHome();
         $news = $actualityRepository->findAll();
         $forums = $forumRepository->findAll();

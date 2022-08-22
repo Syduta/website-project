@@ -230,6 +230,13 @@ h4 {
   margin-top: 1rem;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  font-size: large;
+}
+
 .games-article {
   display: flex;
   flex-wrap: wrap;
@@ -358,6 +365,17 @@ h4 {
   background-color: darkred;
   border-radius: 2rem;
   padding: 0.5rem;
+}
+
+.see-more-btn {
+  background-color: chocolate;
+  color: #204C52;
+  padding: 0 1rem;
+  border-radius: 2rem;
+}
+
+.see-more-btn:hover {
+  background-color: #204C52;
 }
 
 @media screen and (min-width: 1280px) {

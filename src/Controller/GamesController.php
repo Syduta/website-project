@@ -13,7 +13,7 @@ class GamesController extends AbstractController
 
     public function games(GameApi $gameApi){
         $games = $gameApi->getGames();
-//        dd($gameApi->getGames());
+
         return $this->render('front/games.html.twig',[
             'games'=>$games
         ]);

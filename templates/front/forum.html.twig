@@ -28,7 +28,6 @@
             {% if is_granted('ROLE_ADMIN') %}
                 <button class="hide-button"><a href="{{ path('hide-comment',{'id':comment.id}) }}">Hide comment</a></button>
             {% endif %}
-
         {% endif %}
     {% endfor %}
             </div>
@@ -43,5 +42,6 @@
             <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
         </div>
     {% endif %}
+
 
 {% endblock %}

@@ -14,6 +14,8 @@ use App\Repository\ForumRepository;
 use App\Repository\SubjectRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -27,9 +29,14 @@ class FrontController extends AbstractController
      * @Route("/news",name="news")
      */
 
-    public function news(ActualityRepository $actualityRepository){
+    public function news(ActualityRepository $actualityRepository, Request $request, PaginatorInterface $paginator){
         $news = $actualityRepository->findAll();
-        return $this->render('front/news.html.twig',['news'=>$news]);
+        $newsPagination = $paginator->paginate(
+            $news,
+            $request->query->getInt('page',1),
+            3
+        );
+        return $this->render('front/news.html.twig',['news'=>$newsPagination]);
     }
 
     /**
@@ -54,7 +61,7 @@ class FrontController extends AbstractController
      * @Route("/forum/{id}",name="forum")
      */
 
-    public function forum($id, ForumRepository $forumRepository, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository){
+    public function forum($id, ForumRepository $forumRepository, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository, PaginatorInterface $paginator, CommentRepository $commentRepository){
         $forum = $forumRepository->find($id);
         $subject = new Subject();
         $subject->setUser($this->getUser());
@@ -67,6 +74,7 @@ class FrontController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success','subject added');
         }
+
         return $this->render('front/forum.html.twig',[
             'forum'=>$forum,
             'form'=>$form->createView(),
@@ -84,6 +92,7 @@ class FrontController extends AbstractController
         $comment->setUser($this->getUser());
         $comment->setDate(new \DateTime('NOW'));
         $comment->setSubject($subject);
+        $comment->setIsPublished(1);
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
@@ -91,8 +100,9 @@ class FrontController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
             $this->addFlash('success', 'comment added');
-//            $this->redirectToRoute('forum');
         }
+
+
         return $this->render('front/comment.html.twig',[
             'subject'=>$subject,
             'form'=>$form->createView(),
