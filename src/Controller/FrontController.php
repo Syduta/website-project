@@ -52,9 +52,14 @@ class FrontController extends AbstractController
      * @Route("/forums",name="forums")
      */
 
-    public function forums(ForumRepository $forumRepository){
+    public function forums(ForumRepository $forumRepository, Request $request, PaginatorInterface $paginator){
         $forums = $forumRepository->findAll();
-        return $this->render('front/forums.html.twig',['forums'=>$forums]);
+        $forumsPagination = $paginator->paginate(
+            $forums,
+            $request->query->getInt('page',1),
+            3
+        );
+        return $this->render('front/forums.html.twig',['forums'=>$forumsPagination]);
     }
 
     /**
