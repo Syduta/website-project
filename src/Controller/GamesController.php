@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 use App\Services\GameApi;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class GamesController extends AbstractController
@@ -11,7 +13,7 @@ class GamesController extends AbstractController
      * @Route("/games",name="games")
      */
 
-    public function games(GameApi $gameApi){
+    public function games(GameApi $gameApi, Request $request, PaginatorInterface $paginator){
         $games = $gameApi->getGames();
 
         return $this->render('front/games.html.twig',[
