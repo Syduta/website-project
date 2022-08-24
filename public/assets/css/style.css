@@ -129,7 +129,9 @@ h4 {
 }
 
 .carousel {
-  margin-top: 4rem;
+  width: 90%;
+  padding: 0;
+  margin: 0 5vw;
 }
 
 .carousel-inner img {
@@ -400,6 +402,11 @@ h4 {
   .car-img {
     height: 25vh;
   }
+  .carousel {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
   #news {
     display: inline-block;
     padding: 3vw;
@@ -480,6 +487,11 @@ h4 {
   .logoburger {
     width: 3vh;
     border-radius: 2rem;
+  }
+  .carousel {
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
   .car-img {
     height: 25vh;
