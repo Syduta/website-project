@@ -199,10 +199,20 @@ class FrontController extends AbstractController
      * @Route("/read/{id}",name="read")
      */
 
-    public function readMessage($id,Message $message,EntityManagerInterface $entityManager){
+    public function readMessage(Message $message,EntityManagerInterface $entityManager){
         $message->setIsRead(1);
         $entityManager->persist($message);
         $entityManager->flush();
         return $this->render('front/read.html.twig', compact("message"));
+    }
+
+    /**
+     * @Route("/delete-message/{id}",name="delete-message")
+     */
+
+    public function deleteMessage(Message $message,EntityManagerInterface $entityManager){
+        $entityManager->remove($message);
+        $entityManager->flush();
+        return $this->redirectToRoute("received");
     }
 }

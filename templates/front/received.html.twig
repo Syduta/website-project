@@ -13,7 +13,7 @@
                 <div class="col-3">From</div>
                 <div class="col-3">Subject</div>
                 <div class="col-3">Date</div>
-                <div class="col-3">Action</div>
+                <div class="col-3">Delete</div>
                 {% for message in app.user.received %}
                     {% if message.isRead ==0 %}
                         {% set bold = "fw-bold" %}
@@ -23,7 +23,9 @@
                     <div class="col-3 {{ bold }}">{{ message.sender.pseudo }}</div>
                     <div class="col-3 {{ bold }}"><a href="{{ path("read",{"id":message.id}) }}">{{ message.title }}</a></div>
                     <div class="col-3 {{ bold }}">{{ message.createdAt|date }}</div>
-                    <div class="col-3"></div>
+                    <div class="col-3"><a href="{{ path("delete-message",{"id":message.id}) }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-danger bi bi-file-x-fill" viewBox="0 0 16 16">
+                                <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6.854 6.146 8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 1 1 .708-.708z"/>
+                            </svg></a></div>
                 {% endfor %}
                 <div class="col">
                     <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
