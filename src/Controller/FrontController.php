@@ -215,4 +215,14 @@ class FrontController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute("received");
     }
+
+    /**
+     * @Route("/sent",name="sent")
+     */
+
+    public function sentMessage()
+    {
+        return $this->render('front/sent.html.twig');
+    }
+
 }
