@@ -176,10 +176,10 @@ class FrontController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $message->setSender($this->getUser());
 
-        $entityManager->persist($message);
-        $entityManager->flush();
-        $this->addFlash('success','message sent');
-        return $this->redirectToRoute('messages');
+            $entityManager->persist($message);
+            $entityManager->flush();
+            $this->addFlash('success','message sent');
+            return $this->redirectToRoute('messages');
         }
 
         return $this->render('front/send.html.twig',[
@@ -187,4 +187,22 @@ class FrontController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/received",name="received")
+     */
+
+    public function receivedMessage(){
+        return $this->render('front/received.html.twig');
+    }
+
+    /**
+     * @Route("/read/{id}",name="read")
+     */
+
+    public function readMessage($id,Message $message,EntityManagerInterface $entityManager){
+        $message->setIsRead(1);
+        $entityManager->persist($message);
+        $entityManager->flush();
+        return $this->render('front/read.html.twig', compact("message"));
+    }
 }

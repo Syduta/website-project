@@ -4,9 +4,28 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-12">
                     <h3>Mailbox</h3>
-                    <div class=" form text-center offset-4 col-4">{{ form(form) }}</div>
+                    <h4>Inbox</h4>
+                    <p>You have received  {{ app.user.received|length }} messages</p>
+                    <p>You have sent  {{ app.user.sent|length }} messages</p>
+                </div>
+                <div class="col-3">From</div>
+                <div class="col-3">Subject</div>
+                <div class="col-3">Date</div>
+                <div class="col-3">Action</div>
+                {% for message in app.user.received %}
+                    {% if message.isRead ==0 %}
+                        {% set bold = "fw-bold" %}
+                    {% else %}
+                        {% set bold ="" %}
+                    {% endif %}
+                    <div class="col-3 {{ bold }}">{{ message.sender.pseudo }}</div>
+                    <div class="col-3 {{ bold }}"><a href="{{ path("read",{"id":message.id}) }}">{{ message.title }}</a></div>
+                    <div class="col-3 {{ bold }}">{{ message.createdAt|date }}</div>
+                    <div class="col-3"></div>
+                {% endfor %}
+                <div class="col">
                     <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         See messages
                     </a>
@@ -24,7 +43,7 @@
                 <a href="{{ path('messages') }}" class="list-group-item list-group-item-action">Reception</a>
             </div>
             <div class="list-group">
-                <a href="{{ path('received') }}" class="list-group-item list-group-item-action">Messages received</a>
+                <a href="{{ path('received') }}" class="list-group-item list-group-item-action active">Messages received</a>
             </div>
             <div class="list-group">
                 <a href="{{ path('messages') }}" class="list-group-item list-group-item-action">Messages sent</a>

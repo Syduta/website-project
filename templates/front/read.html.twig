@@ -4,12 +4,16 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-12">
                     <h3>Mailbox</h3>
-                    <div class=" form text-center offset-4 col-4">{{ form(form) }}</div>
+                    <h4>{{ message.title }}</h4>
+                    <p>from {{ message.sender.pseudo }}</p>
+                    <p>received the {{ message.createdAt|date }}</p>
+                    <div>{{ message.message }}</div>
                     <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                         See messages
                     </a>
+                    <a href="{{ path("received") }}">Return to inbox</a>
                 </div>
             </div>
         </div>
@@ -24,7 +28,7 @@
                 <a href="{{ path('messages') }}" class="list-group-item list-group-item-action">Reception</a>
             </div>
             <div class="list-group">
-                <a href="{{ path('received') }}" class="list-group-item list-group-item-action">Messages received</a>
+                <a href="{{ path('received') }}" class="list-group-item list-group-item-action active">Messages received</a>
             </div>
             <div class="list-group">
                 <a href="{{ path('messages') }}" class="list-group-item list-group-item-action">Messages sent</a>
