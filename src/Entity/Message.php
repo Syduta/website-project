@@ -35,9 +35,9 @@ class Message
     #[ORM\JoinColumn(nullable: false)]
     private ?User $recipient = null;
 
-    public function __construct(){
-        $this->created_at = new \DateTime();
-    }
+//    public function __construct(){
+//        $this->created_at = new \DateTime();
+//    }
 
     public function getId(): ?int
     {

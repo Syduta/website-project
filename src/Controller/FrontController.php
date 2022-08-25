@@ -5,12 +5,15 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Entity\Subject;
 use App\Entity\User;
+use App\Entity\Message;
 use App\Form\CommentType;
+use App\Form\MessageType;
 use App\Form\SubjectType;
 use App\Form\UserType;
 use App\Repository\ActualityRepository;
 use App\Repository\CommentRepository;
 use App\Repository\ForumRepository;
+use App\Repository\MessageRepository;
 use App\Repository\SubjectRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -151,4 +154,37 @@ class FrontController extends AbstractController
         }
         return $this->render("front/update-profile.html.twig",['form'=>$form->createView()]);
     }
+
+    /**
+     * @Route("/messages",name="messages")
+     */
+
+    public function messages(){
+
+        return $this->render('front/messages.html.twig');
+    }
+
+    /**
+     * @Route("/send",name="send")
+     */
+
+    public function sendMessage(Request $request, EntityManagerInterface $entityManager){
+        $message = new Message();
+        $message->setCreatedAt(new \DateTimeImmutable('NOW'));
+        $form = $this->createForm(MessageType::class,$message);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $message->setSender($this->getUser());
+
+        $entityManager->persist($message);
+        $entityManager->flush();
+        $this->addFlash('success','message sent');
+        return $this->redirectToRoute('messages');
+        }
+
+        return $this->render('front/send.html.twig',[
+        'form'=>$form->createView()
+        ]);
+    }
+
 }
