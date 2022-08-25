@@ -72,6 +72,7 @@ class FrontController extends AbstractController
         $subject->setUser($this->getUser());
         $subject->setDate(new \DateTime('NOW'));
         $subject->setForum($forum);
+        $subject->setIsPublished(1);
         $form = $this->createForm(SubjectType::class, $subject);
         $form->handleRequest($request);
         if($form->isSubmitted()&&$form->isValid()){

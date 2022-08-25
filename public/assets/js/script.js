@@ -9,6 +9,16 @@ burger.addEventListener('click',function () {
         menu.classList.add('d-none');
     }
 });
+//js hide/show subject form
+const newSub = document.querySelector(".pop-sub");
+const showForm = document.querySelector(".pop-form");
+newSub.addEventListener('click',function(){
+   if(showForm.classList.contains('d-none')){
+       showForm.classList.remove('d-none');
+   }else{
+       showForm.classList.add('d-none');
+   }
+});
 // js afficher/cacher commentaires forum
 var acc = document.getElementsByClassName("accordion");
 

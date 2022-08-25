@@ -173,4 +173,19 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('forums');
     }
+    /**
+     * @Route("/hide-subject/{id}",name="hide-subject")
+     */
+
+    public function hideSubject($id, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository)
+    {
+        $subject = $subjectRepository->find($id);
+        $subject->setIsPublished(0);
+
+        $entityManager->persist($subject);
+        $entityManager->flush();
+        $this->addFlash('success','subject hidden');
+
+        return $this->redirectToRoute('forums');
+    }
 }

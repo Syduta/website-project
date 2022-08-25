@@ -14,13 +14,19 @@
         <div class=" form text-center offset-4 col-4 pop-form d-none">{{ form(form) }}</div>
     {% endif %}
     {% for subject in forum.subjects %}
+        {% if subject.isPublished %}
 
-    <article>
+        <article>
         <div id="accordion">
             <div class="offset-2 col-8 text-center">
             <button class="accordion">{{ subject.title }}</button>
             <div class="panel d-none">
-    {% for comment in subject.comment %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <button class="hide-button"><a href="{{ path('hide-subject',{'id':subject.id}) }}">Hide subject</a></button>
+            {% endif %}
+        {% endif %}
+
+        {% for comment in subject.comment %}
         {% if comment.isPublished %}
         <div id="comment">
         <h3 class="comments">{{ comment.comment }}</h3><p>added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>

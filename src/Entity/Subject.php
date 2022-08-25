@@ -36,6 +36,9 @@ class Subject
     #[ORM\OneToMany(mappedBy: 'subject', targetEntity: Comment::class)]
     private Collection $comment;
 
+    #[ORM\Column]
+    private ?bool $is_published = null;
+
     public function __construct()
     {
         $this->comment = new ArrayCollection();
@@ -132,6 +135,18 @@ class Subject
                 $comment->setSubject(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isIsPublished(): ?bool
+    {
+        return $this->is_published;
+    }
+
+    public function setIsPublished(bool $is_published): self
+    {
+        $this->is_published = $is_published;
 
         return $this;
     }
