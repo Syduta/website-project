@@ -44,7 +44,7 @@
     {% endfor %}
     {% if is_granted('ROLE_ADMIN') %}
         <div class="admin">
-            <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
+{#            <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>#}
             <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
         </div>
     {% endif %}

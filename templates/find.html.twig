@@ -15,7 +15,7 @@
 
     {% for new in news %}
         <article id="news">
-            <div class="news-article offset-1 col-10 text-center">
+            <div class="news-article find-article offset-1 col-10 text-center">
             <a href="{{ path('new',{'id':new.id}) }}">
                 <h2>{{ new.title }}</h2>
                 {% if new.picture %}

@@ -42,8 +42,8 @@
                     <h4>{{ new.title }}</h4>
         {% if is_granted('ROLE_ADMIN') %}
             <div class="admin">
-                <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
                 <li><a href="{{ path('admin-update-actu',{'id':new.id}) }}">Update actu</a></li>
+                <li><a href="{{ path('admin-delete-actu',{'id':new.id}) }}">Delete actu</a></li>
             </div>
         {% endif %}
                     {% if new.picture %}
@@ -87,12 +87,12 @@
                         <h4>{{ forum.title }}</h4>
             {% if is_granted('ROLE_ADMIN') %}
                 <div class="admin">
-                    <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>
                     <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+{#                    <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>#}
                 </div>
             {% endif %}
                         {% if forum.picture %}
-                            <img src="{{ asset('uploads/images/'~forum.picture) }}" alt="picture of the subject">
+                            <a href="{{ path('forum',{'id':forum.id}) }}"><img src="{{ asset('uploads/images/'~forum.picture) }}" alt="picture of the subject"></a>
                         {% endif %}
                     </a>
             </div>
