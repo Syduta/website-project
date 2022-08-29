@@ -21,6 +21,7 @@
         <div id="accordion">
             <div class="offset-2 col-8 text-center">
             <button class="accordion">{{ subject.title }}</button>
+            <h5>{{ subject.content }} by {{ subject.user.pseudo }}</h5>
             <div class="panel d-none">
             {% if is_granted('ROLE_ADMIN') %}
                 <button class="hide-button"><a href="{{ path('hide-subject',{'id':subject.id}) }}">Hide subject</a></button>

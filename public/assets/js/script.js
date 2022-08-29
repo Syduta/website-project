@@ -1,6 +1,5 @@
 // js menu burger
 const burger = document.getElementById('burger');
-console.log(burger);
 const menu = document.querySelector('.menu-burg');
 burger.addEventListener('click',function () {
     if(menu.classList.contains('d-none')){

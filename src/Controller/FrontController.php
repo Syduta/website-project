@@ -64,26 +64,38 @@ class FrontController extends AbstractController
         );
         return $this->render('front/forums.html.twig',['forums'=>$forumsPagination]);
     }
-
+    // Création de l'url et du nom que l'on pourra rappeler dans nos templates
     /**
      * @Route("/forum/{id}",name="forum")
      */
-
-    public function forum($id, ForumRepository $forumRepository, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository, PaginatorInterface $paginator, CommentRepository $commentRepository){
+    // Création de la fonction forum, on injecte
+    public function forum($id, ForumRepository $forumRepository, EntityManagerInterface $entityManager, Request $request){
+        // on trouve le forum en question grace à son id
         $forum = $forumRepository->find($id);
+        // on lui ajoute un nouveau sujet en créant une nouvelle ligne dans l'entité sujet
         $subject = new Subject();
+        // on donne à l'utilisateur connecté le statut de créateur du sujet
         $subject->setUser($this->getUser());
+        // et défini la date de création avec la date du moment automatiquement
         $subject->setDate(new \DateTime('NOW'));
+        // on lie le sujet au bon forum
         $subject->setForum($forum);
+        // et donne la valeur true à isPublished par défaut
         $subject->setIsPublished(1);
+        // on utilise le formulaire subjecttype qui servira pour créer le nouvel sujet
         $form = $this->createForm(SubjectType::class, $subject);
+        // $request gère les données de la requête pour ensuite pouvoir les traiter
         $form->handleRequest($request);
+        // si le formulaire soumis est valide
         if($form->isSubmitted()&&$form->isValid()){
+            // Entity manager nous sert à envoyer le tout en base de données
             $entityManager->persist($subject);
             $entityManager->flush();
+            // On affiche un message flash et on redirige sur la page forums si un sujet a été créé
             $this->addFlash('success','subject added');
+            return $this->redirectToRoute('forums');
         }
-
+        // sur la page forum on peut afficher le formulaire avec la variable form
         return $this->render('front/forum.html.twig',[
             'forum'=>$forum,
             'form'=>$form->createView(),
@@ -109,9 +121,8 @@ class FrontController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
             $this->addFlash('success', 'comment added');
+            return $this->redirectToRoute('forums');
         }
-
-
         return $this->render('front/comment.html.twig',[
             'subject'=>$subject,
             'form'=>$form->createView(),
