@@ -28,7 +28,6 @@ class GamesController extends AbstractController
 
     public function game($id, GameApi $gameApi){
         $game = $gameApi->getGame($id);
-//        dd($game);
         return $this->render('front/game.html.twig',['game'=>$game]);
     }
 
@@ -37,7 +36,6 @@ class GamesController extends AbstractController
      */
     public function gameDlc($id,GameApi $gameApi){
         $game = $gameApi->getGameDlc($id);
-//        dd($game);
         return $this->render('front/game-dlc.html.twig',['game'=>$game['results'][0]]);
     }
 }

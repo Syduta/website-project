@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Connexion{% endblock %}
 {% block main %}
     <div class="text-center">
         <h5>{% if app.user %}<li><a href="{{ path('messages')}}">Mailbox</a></li>{% endif %}</h5>

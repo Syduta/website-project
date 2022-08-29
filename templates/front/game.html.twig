@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %}Game{% endblock %}
 {% block main %}
 
     <article  class="games-article">
@@ -16,7 +17,10 @@
         {% if game.metacritic %}
             <p>Metacritic note {{ game.metacritic }}</p>
         {% endif %}
+        {{ dump(game) }}
+{#        {% if game.dlc %}#}
         <a class="games-button" href="{{ path('game-dlc',{'id':game.id}) }}">DLC</a>
+{#        {% endif %}#}
         <a class="games-button" href="{{ game.website }}">Game website</a>
         </div>
     </article>

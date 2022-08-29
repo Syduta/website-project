@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %}DLC{% endblock %}
 {% block main %}
 
     <article class="games-article">
@@ -16,6 +17,8 @@
         {% if game.metacritic %}
             <p>Metacritic note {{ game.metacritic }}</p>
         {% endif %}
+        {{ dump(game) }}
+
         </div>
     </article>
 
