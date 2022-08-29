@@ -68,7 +68,7 @@ class FrontController extends AbstractController
     /**
      * @Route("/forum/{id}",name="forum")
      */
-    // Création de la fonction forum, on injecte
+    // Création de la fonction forum, on injecte les instances qui vont nous servir par la suite
     public function forum($id, ForumRepository $forumRepository, EntityManagerInterface $entityManager, Request $request){
         // on trouve le forum en question grace à son id
         $forum = $forumRepository->find($id);
@@ -106,7 +106,7 @@ class FrontController extends AbstractController
      * @Route("/comment/{id}",name="comment")
      */
 
-    public function comment($id, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository, CommentRepository $commentRepository)
+    public function comment($id, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository)
     {
         $subject = $subjectRepository->find($id);
         $comment = new Comment();
@@ -142,7 +142,8 @@ class FrontController extends AbstractController
      * @Route("/update-profile",name="update-profile")
      */
 
-    public function updateProfile( Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, UserPasswordHasherInterface $userPasswordHasher){
+    public function updateProfile( Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger,
+                                   UserPasswordHasherInterface $userPasswordHasher){
         $user= $this->getUser();
         $form= $this->createForm(UserType::class,$user);
         $form->handleRequest($request);
@@ -174,25 +175,33 @@ class FrontController extends AbstractController
 
         return $this->render('front/messages.html.twig');
     }
-
+    // Création de l'url et du nom que l'on pourra rappeler dans nos templates
     /**
      * @Route("/send",name="send")
      */
-
+    // Création de la fonction "envoyer message",  on injecte les instances qui vont nous servir par la suite
     public function sendMessage(Request $request, EntityManagerInterface $entityManager){
+        // on crée une nouvelle ligne dans l'entité message
         $message = new Message();
+        // on défini la date de création
         $message->setCreatedAt(new \DateTimeImmutable('NOW'));
+        // on utilise le formulaire messagetype pour créer le message
         $form = $this->createForm(MessageType::class,$message);
+        // request gère les données avant de les traiter
         $form->handleRequest($request);
+        // si le formulaire soumis est valide
         if($form->isSubmitted() && $form->isValid()){
+            // l'utilisateur connecté sera l'expéditeur
             $message->setSender($this->getUser());
-
+            // Entity manager nous sert à envoyer le tout en base de données
             $entityManager->persist($message);
             $entityManager->flush();
+            // un message flash vient nous confirmé l'envoi du message
             $this->addFlash('success','message sent');
+            // on redirige vers la boite de réception
             return $this->redirectToRoute('messages');
         }
-
+        // sur la page send on peut afficher le formulaire avec la variable form
         return $this->render('front/send.html.twig',[
         'form'=>$form->createView()
         ]);

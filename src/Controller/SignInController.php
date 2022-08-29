@@ -16,7 +16,7 @@ class SignInController extends AbstractController
     /**
      * @Route("/sign-in",name="sign-in")
      */
-        // Création de la fonction "inscription", on injecte
+        // Création de la methode "inscription", on injecte les instances qui vont nous servir par la suite
     public function signIn(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager,
                            SluggerInterface $slugger){
         // on crée une nouvelle ligne dans l'entité user
