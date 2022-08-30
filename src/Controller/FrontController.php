@@ -72,7 +72,7 @@ class FrontController extends AbstractController
     public function forum($id, ForumRepository $forumRepository, EntityManagerInterface $entityManager, Request $request){
         // on trouve le forum en question grace à son id
         $forum = $forumRepository->find($id);
-        // on lui ajoute un nouveau sujet en créant une nouvelle ligne dans l'entité sujet
+        // instance d'un nouveau sujet, en créant une nouvelle ligne dans l'entité sujet
         $subject = new Subject();
         // on donne à l'utilisateur connecté le statut de créateur du sujet
         $subject->setUser($this->getUser());
@@ -87,7 +87,7 @@ class FrontController extends AbstractController
         // $request gère les données de la requête pour ensuite pouvoir les traiter
         $form->handleRequest($request);
         // si le formulaire soumis est valide
-        if($form->isSubmitted()&&$form->isValid()){
+        if($form->isSubmitted() && $form->isValid()){
             // Entity manager nous sert à envoyer le tout en base de données
             $entityManager->persist($subject);
             $entityManager->flush();
@@ -181,7 +181,7 @@ class FrontController extends AbstractController
      */
     // Création de la fonction "envoyer message",  on injecte les instances qui vont nous servir par la suite
     public function sendMessage(Request $request, EntityManagerInterface $entityManager){
-        // on crée une nouvelle ligne dans l'entité message
+        // instance d'un nouveau message, on crée une nouvelle ligne dans l'entité message
         $message = new Message();
         // on défini la date de création
         $message->setCreatedAt(new \DateTimeImmutable('NOW'));

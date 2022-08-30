@@ -19,7 +19,7 @@ class SignInController extends AbstractController
         // Création de la methode "inscription", on injecte les instances qui vont nous servir par la suite
     public function signIn(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager,
                            SluggerInterface $slugger){
-        // on crée une nouvelle ligne dans l'entité user
+        // instance d'un nouvel user, celà crée une nouvelle ligne dans l'entité user
         $user = new User();
         // comme le formulaire qui suit ne traite pas ce champ et qu'il est obligatoire on donne le role user
         // pour que symfony puisse traiter la demande
