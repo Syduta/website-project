@@ -342,6 +342,16 @@ h4 {
   color: chocolate;
 }
 
+.subject-content {
+  color: #FFFFFF;
+}
+
+.comments {
+  color: #FFFFFF;
+  border-top: solid 2px #204C52;
+  font-style: oblique;
+}
+
 .forums-button {
   display: block;
   background-color: chocolate;

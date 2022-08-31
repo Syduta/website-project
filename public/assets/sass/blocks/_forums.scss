@@ -50,6 +50,16 @@
   color: $chocolate;
 }
 
+.subject-content{
+  color: $bright-color;
+}
+
+.comments{
+  color: $bright-color;
+  border-top: solid 2px $primary-color ;
+  font-style: oblique;
+}
+
 .forums-button{
   display: block;
   background-color: $chocolate;

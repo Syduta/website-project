@@ -14,6 +14,7 @@
     {% if app.user %}<p class="text-center pop-sub">Add new subject</p>
         <div class=" form text-center offset-4 col-4 pop-form d-none">{{ form(form) }}</div>
     {% endif %}
+    <h3 class="text-center">Existing subjects</h3>
     {% for subject in forum.subjects %}
         {% if subject.isPublished %}
 
@@ -21,7 +22,7 @@
         <div id="accordion">
             <div class="offset-2 col-8 text-center">
             <button class="accordion">{{ subject.title }}</button>
-            <h5>{{ subject.content }} by {{ subject.user.pseudo }}</h5>
+            <h5 class="subject-content">{{ subject.content }} by {{ subject.user.pseudo }}</h5>
             <div class="panel d-none">
             {% if is_granted('ROLE_ADMIN') %}
                 <button class="hide-button"><a href="{{ path('hide-subject',{'id':subject.id}) }}">Hide subject</a></button>
@@ -31,7 +32,7 @@
         {% for comment in subject.comment %}
         {% if comment.isPublished %}
         <div id="comment">
-        <h3 class="comments">{{ comment.comment }}</h3><p>added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
+        <h5 class="comments">{{ comment.comment }}</h5><p>added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
         </div>
             {% if is_granted('ROLE_ADMIN') %}
                 <button class="hide-button"><a href="{{ path('hide-comment',{'id':comment.id}) }}">Hide comment</a></button>
