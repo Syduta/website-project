@@ -181,7 +181,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/hide-subject/{id}",name="hide-subject")
      */
-
+    // La fonction hideSubject servira à un modérateur pour cacher un sujet dans un forum
     public function hideSubject($id, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository)
     {
         $subject = $subjectRepository->find($id);

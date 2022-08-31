@@ -179,7 +179,7 @@ class FrontController extends AbstractController
     /**
      * @Route("/send",name="send")
      */
-    // Création de la fonction "envoyer message",  on injecte les instances qui vont nous servir par la suite
+    // Création de la fonction "envoyer message", on injecte les instances qui vont nous servir par la suite
     public function sendMessage(Request $request, EntityManagerInterface $entityManager){
         // instance d'un nouveau message, on crée une nouvelle ligne dans l'entité message
         $message = new Message();
