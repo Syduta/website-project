@@ -11,56 +11,23 @@
     <title>{% block title %}Video-Games Blog{% endblock %}</title>
 </head>
 <body>
-<div class="bbg"></div>
-<div class="bbg bbg2"></div>
-<div class="bbg bbg3"></div>
-{% block header %}
-<header>
-    <nav>
-{#    desktop navbar#}
-        <ul class="menu-desk">
-            <li><a href="{{ path('home') }}"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
-                <li><a href="{{ path('news') }}">News</a></li>
-                <li><a href="{{ path('games') }}">Games</a></li>
-                <li><a href="{{ path('forums') }}">Forums</a></li>
-                <li><form action="{{ path('find') }}" method="get">
-                        <input type="text" name="search" placeholder="">
-                        <input type="submit" value="Search">
-                    </form>
-                </li>
-            <li class="connexion"><a href="{{ path('connexion') }}">Connexion</a></li>
-            <li>{% if app.user %}
-                        <a href="{{ path('update-profile') }}">
-                            <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}" alt="">
-                        </a>
-                    </h3>
-                {% endif %}</li>
-            {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="{{ path('admin-new-actu') }}">admin create actu</a></li>
-                <li><a href="{{ path('admin-new-forum') }}">admin create forum</a></li>
-            {% endif %}
-        </ul>
-
-{#        mobile navbar#}
-
-        <ul>
-            <li class="logo-burg"><a href="{{ path('home') }}"><img class="logo logo-burg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
-            <a id="burger"><img class="logoburger" src="https://icon-library.com/images/hamburger-menu-icon-png-white/hamburger-menu-icon-png-white-10.jpg" alt=""></a>
-            <ul class="menu-burg">
-                    <div  class="li-connexion d-none">
-                        {% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}
-                        {% if not app.user %}<li><a href="{{ path('log-in') }}">Log-in</a></li>{% endif %}
-                        {% if app.user %}<li><a href="{{ path('log-out') }}">Log-out</a></li>{% endif %}
-                        {% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}
-                    </div>
-                            <li><a href="{{ path('news') }}">News</a></li>
-                            <li><a href="{{ path('games') }}">Games</a></li>
-                            <li><a href="{{ path('forums') }}">Forums</a></li>
-                            <li><form action="{{ path('find') }}" method="get">
-                                    <input type="text" name="search" placeholder="">
-                                    <input type="submit" value="Search">
-                                </form>
-                            </li>
+    <div class="bbg"></div>
+    <div class="bbg bbg2"></div>
+    <div class="bbg bbg3"></div>
+    {% block header %}
+    <header>
+        <nav>
+    {#    desktop navbar#}
+            <ul class="menu-desk">
+                <li><a href="{{ path('home') }}"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
+                    <li><a href="{{ path('news') }}">News</a></li>
+                    <li><a href="{{ path('games') }}">Games</a></li>
+                    <li><a href="{{ path('forums') }}">Forums</a></li>
+                    <li><form action="{{ path('find') }}" method="get">
+                            <input type="text" name="search" placeholder="">
+                            <input type="submit" value="Search">
+                        </form>
+                    </li>
                 <li class="connexion"><a href="{{ path('connexion') }}">Connexion</a></li>
                 <li>{% if app.user %}
                             <a href="{{ path('update-profile') }}">
@@ -68,42 +35,75 @@
                             </a>
                         </h3>
                     {% endif %}</li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('admin-new-actu') }}">admin create actu</a></li>
+                    <li><a href="{{ path('admin-new-forum') }}">admin create forum</a></li>
+                {% endif %}
             </ul>
 
-        </ul>
-    </nav>
+    {#        mobile navbar#}
 
-    {% for message in app.flashes('success') %}
-        <div class="alert alert-dismissible fade show" role="alert">
-            {% if app.user %}
-                <h3>{{ message }}</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
-            {% endif %}
-        </div>
-    {% endfor %}
-</header>
-{% endblock %}
-{% block main %}
-<main>
-
-</main>
-{% endblock %}
-{% block footer %}
-    <footer>
-        <nav>
             <ul>
-                <li><a href="{{ path('home') }}"><img class="logo img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
-                <li><a href="{{ path('news') }}">News</a></li>
-                <li><a href="{{ path('games') }}">Games</a></li>
-                <li><a href="{{ path('forums') }}">Forums</a></li>
+                <li class="logo-burg"><a href="{{ path('home') }}"><img class="logo logo-burg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
+                <a id="burger"><img class="logoburger" src="https://icon-library.com/images/hamburger-menu-icon-png-white/hamburger-menu-icon-png-white-10.jpg" alt=""></a>
+                <ul class="menu-burg">
+                        <div  class="li-connexion d-none">
+                            {% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}
+                            {% if not app.user %}<li><a href="{{ path('log-in') }}">Log-in</a></li>{% endif %}
+                            {% if app.user %}<li><a href="{{ path('log-out') }}">Log-out</a></li>{% endif %}
+                            {% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}
+                        </div>
+                                <li><a href="{{ path('news') }}">News</a></li>
+                                <li><a href="{{ path('games') }}">Games</a></li>
+                                <li><a href="{{ path('forums') }}">Forums</a></li>
+                                <li><form action="{{ path('find') }}" method="get">
+                                        <input type="text" name="search" placeholder="">
+                                        <input type="submit" value="Search">
+                                    </form>
+                                </li>
+                    <li class="connexion"><a href="{{ path('connexion') }}">Connexion</a></li>
+                    <li>{% if app.user %}
+                                <a href="{{ path('update-profile') }}">
+                                    <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}" alt="">
+                                </a>
+                            </h3>
+                        {% endif %}</li>
+                </ul>
+
             </ul>
         </nav>
-    </footer>
-{% endblock %}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-<script src="{{ asset('assets/js/script.js') }}"></script>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-dismissible fade show" role="alert">
+                {% if app.user %}
+                    <h3>{{ message }}</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </header>
+    {% endblock %}
+    {% block main %}
+    <main>
+
+    </main>
+    {% endblock %}
+    {% block footer %}
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('home') }}"><img class="logo img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
+                    <li><a href="{{ path('news') }}">News</a></li>
+                    <li><a href="{{ path('games') }}">Games</a></li>
+                    <li><a href="{{ path('forums') }}">Forums</a></li>
+                </ul>
+            </nav>
+        </footer>
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 </html>

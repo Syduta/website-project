@@ -1,47 +1,47 @@
 {% extends 'base.html.twig' %}
-{% block title %}Find{% endblock %}
-{% block main %}
+    {% block title %}Find{% endblock %}
+    {% block main %}
 
-    {% for game in games.results %}
-        <article id="games">
-            <div class="games-find text-center">
-            <a href="{{ path('game',{'id':game.id}) }}">
-                <h2 class="text-center">{{ game.name }}</h2>
-                <img src="{{ game.background_image }}" alt="">
-            </a>
-            </div>
-        </article>
-    {% endfor %}
+        {% for game in games.results %}
+            <article id="games">
+                <div class="games-find text-center">
+                <a href="{{ path('game',{'id':game.id}) }}">
+                    <h2 class="text-center">{{ game.name }}</h2>
+                    <img src="{{ game.background_image }}" alt="">
+                </a>
+                </div>
+            </article>
+        {% endfor %}
 
-    {% for new in news %}
-        <article id="news">
-            <div class="news-article find-article offset-1 col-10 text-center">
-            <a href="{{ path('new',{'id':new.id}) }}">
-                <h2>{{ new.title }}</h2>
-                {% if new.picture %}
-                    <img src="{{ asset('uploads/images/')~new.picture }}" alt="picture of the subject">
-                {% endif %}
-            </a>
-            <p>{{ new.content }}</p>
-            </div>
-        </article>
-    {% endfor %}
+        {% for new in news %}
+            <article id="news">
+                <div class="news-article find-article offset-1 col-10 text-center">
+                <a href="{{ path('new',{'id':new.id}) }}">
+                    <h2>{{ new.title }}</h2>
+                    {% if new.picture %}
+                        <img src="{{ asset('uploads/images/')~new.picture }}" alt="picture of the subject">
+                    {% endif %}
+                </a>
+                <p>{{ new.content }}</p>
+                </div>
+            </article>
+        {% endfor %}
 
-    {% for forum in forums %}
-        <article id="forums">
-            <div class="forums-article offset-1 col-10 text-center">
-            <a href="{{ path('forum',{'id':forum.id}) }}">
-                <h2>{{ forum.title }}</h2>
-                {% if forum.picture %}
-                    <img src="{{ asset('uploads/images/')~forum.picture }}" alt="picture of the subject">
-                {% endif %}
-            </a>
-            <p>{{ forum.content }}</p>
-            </div>
-        </article>
-    {% endfor %}
+        {% for forum in forums %}
+            <article id="forums">
+                <div class="forums-article offset-1 col-10 text-center">
+                <a href="{{ path('forum',{'id':forum.id}) }}">
+                    <h2>{{ forum.title }}</h2>
+                    {% if forum.picture %}
+                        <img src="{{ asset('uploads/images/')~forum.picture }}" alt="picture of the subject">
+                    {% endif %}
+                </a>
+                <p>{{ forum.content }}</p>
+                </div>
+            </article>
+        {% endfor %}
 
 
-{% endblock %}
-{% block footer %}
-{% endblock %}
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}

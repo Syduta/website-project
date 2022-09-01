@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
-{% block title %}Connexion{% endblock %}
-{% block main %}
-    <div class="text-center">
-        <h5>{% if app.user %}<li><a href="{{ path('messages')}}">Mailbox</a></li>{% endif %}</h5>
-        <h5>{% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}</h5>
-        <p>{% if not app.user %}If you want to see or comment our forums and have access to messages</p>{% endif %}
-        <h5>{% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}</h5>
-        <p>{% if not app.user %}Or</p>{% endif %}
-        <h5>{% if not app.user %}<li><a href="{{ path('log-in') }}">Log-in</a></li>{% endif %}</h5>
-        <h5>{% if app.user %}<li><a href="{{ path('log-out') }}">Log-out</a></li>{% endif %}</h5>
-    </div>
-{% endblock %}
+    {% block title %}Connexion{% endblock %}
+    {% block main %}
+        <div class="text-center">
+            <h5>{% if app.user %}<li><a href="{{ path('messages')}}">Mailbox</a></li>{% endif %}</h5>
+            <h5>{% if app.user %}<li><a href="{{ path('update-profile')}}">Update profile</a></li>{% endif %}</h5>
+            <p>{% if not app.user %}If you want to see or comment our forums and have access to messages</p>{% endif %}
+            <h5>{% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}</h5>
+            <p>{% if not app.user %}Or</p>{% endif %}
+            <h5>{% if not app.user %}<li><a href="{{ path('log-in') }}">Log-in</a></li>{% endif %}</h5>
+            <h5>{% if app.user %}<li><a href="{{ path('log-out') }}">Log-out</a></li>{% endif %}</h5>
+        </div>
+    {% endblock %}
 
-{% block footer %}
-{% endblock %}
+    {% block footer %}
+    {% endblock %}

@@ -1,56 +1,56 @@
 {% extends 'base.html.twig' %}
-{% block title %}Forum{% endblock %}
-{% block main %}
+    {% block title %}Forum{% endblock %}
+    {% block main %}
 
-<article class="forums-article">
-        <h2>{{ forum.title }}</h2>
-        <div class="offset-2 col-8 text-center">
-        {% if forum.picture %}
-            <img src="{{ asset('uploads/images/')~forum.picture }}" alt="picture of the subject">
-        {% endif %}
-        <p>{{ forum.content }}</p>
-        </div>
-    </article>
-    {% if app.user %}<p class="text-center pop-sub">Add new subject</p>
-        <div class=" form text-center offset-4 col-4 pop-form d-none">{{ form(form) }}</div>
-    {% endif %}
-    <h3 class="text-center">Existing subjects</h3>
-    {% for subject in forum.subjects %}
-        {% if subject.isPublished %}
-
-        <article>
-        <div id="accordion">
+        <article class="forums-article">
+            <h2>{{ forum.title }}</h2>
             <div class="offset-2 col-8 text-center">
-            <button class="accordion">{{ subject.title }}</button>
-            <h5 class="subject-content">{{ subject.content }} by {{ subject.user.pseudo }}</h5>
-            <div class="panel d-none">
-            {% if is_granted('ROLE_ADMIN') %}
-                <button class="hide-button"><a href="{{ path('hide-subject',{'id':subject.id}) }}">Hide subject</a></button>
-            {% endif %}
-        {% endif %}
-        <h3 class="text-center">Comments :</h3>
-        {% for comment in subject.comment %}
-        {% if comment.isPublished %}
-        <div id="comment">
-        <h5 class="comments">{{ comment.comment }}</h5><p>added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
-        </div>
-            {% if is_granted('ROLE_ADMIN') %}
-                <button class="hide-button"><a href="{{ path('hide-comment',{'id':comment.id}) }}">Hide comment</a></button>
-            {% endif %}
-        {% endif %}
-    {% endfor %}
+                {% if forum.picture %}
+                    <img src="{{ asset('uploads/images/')~forum.picture }}" alt="picture of the subject">
+                {% endif %}
+                <p>{{ forum.content }}</p>
             </div>
+        </article>
+        {% if app.user %}<p class="text-center pop-sub">Add new subject</p>
+            <div class=" form text-center offset-4 col-4 pop-form d-none">{{ form(form) }}</div>
+        {% endif %}
+        <h3 class="text-center">Existing subjects</h3>
+        {% for subject in forum.subjects %}
+            {% if subject.isPublished %}
+
+            <article>
+            <div id="accordion">
+                <div class="offset-2 col-8 text-center">
+                    <button class="accordion">{{ subject.title }}</button>
+                    <h5 class="subject-content">{{ subject.content }} by {{ subject.user.pseudo }}</h5>
+                <div class="panel d-none">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <button class="hide-button"><a href="{{ path('hide-subject',{'id':subject.id}) }}">Hide subject</a></button>
+                {% endif %}
+            {% endif %}
+                <h3 class="text-center">Comments :</h3>
+            {% for comment in subject.comment %}
+                {% if comment.isPublished %}
+                <div id="comment">
+                <h5 class="comments">{{ comment.comment }}</h5><p>added the {{ comment.date|date('M-d-y') }} by {{ comment.user.pseudo }}</p>
+                </div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <button class="hide-button"><a href="{{ path('hide-comment',{'id':comment.id}) }}">Hide comment</a></button>
+                    {% endif %}
+                {% endif %}
+        {% endfor %}
+                </div>
+                </div>
             </div>
-        </div>
-    </article>
-        {% if app.user %}<a class="forums-button offset-3 col-6 text-center" href="{{ path('comment',{'id':subject.id}) }}">Add a comment</a>{% endif %}
-    {% endfor %}
-    {% if is_granted('ROLE_ADMIN') %}
-        <div class="admin">
-{#            <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>#}
-            <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
-        </div>
-    {% endif %}
+        </article>
+            {% if app.user %}<a class="forums-button offset-3 col-6 text-center" href="{{ path('comment',{'id':subject.id}) }}">Add a comment</a>{% endif %}
+        {% endfor %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="admin">
+    {#            <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>#}
+                <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+            </div>
+        {% endif %}
 
 
-{% endblock %}
+    {% endblock %}

@@ -6,6 +6,7 @@
     </h1>
 
     <h3 class="offset-1 col-10">Fresh News</h3>
+{#    carousel#}
     <section id="carousel">
         <div id="carouselExampleIndicators" class="carousel slide offset-2 col-8" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -35,6 +36,7 @@
     </section>
     <section>
     <div class="offset-2 col-10">
+{#        news#}
     {% for new in news |slice (4,12) %}
         <article id="news">
             <div class="news">
@@ -61,6 +63,7 @@
     </div>
     </section>
     <section>
+{#        games#}
     <h3 class="offset-1 col-10">Hot Games</h3>
     {% for game in games.results %}
         <article id="games">
@@ -77,6 +80,7 @@
         </div>
     </section>
     <section>
+{#        forums#}
         <h3 class="offset-1 col-10">Latest forums</h3>
         <div class="text-center offset-2 col-8">
     {% for forum in forums %}

@@ -1,58 +1,58 @@
 {% extends 'base.html.twig' %}
-{% block title %}Inbox{% endblock %}
-{% block main %}
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3>Mailbox</h3>
-                    <h4>Inbox</h4>
-                    <p>You have received  {{ app.user.received|length }} messages</p>
-                    <p>You have sent  {{ app.user.sent|length }} messages</p>
+    {% block title %}Inbox{% endblock %}
+    {% block main %}
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Mailbox</h3>
+                        <h4>Inbox</h4>
+                        <p>You have received  {{ app.user.received|length }} messages</p>
+                        <p>You have sent  {{ app.user.sent|length }} messages</p>
+                    </div>
+                    <div class="col-3">From</div>
+                    <div class="col-3">Subject</div>
+                    <div class="col-3">Date</div>
+                    <div class="col-3">Delete</div>
+                    {% for message in app.user.received %}
+                        {% if message.isRead ==0 %}
+                            {% set bold = "fw-bold" %}
+                        {% else %}
+                            {% set bold ="" %}
+                        {% endif %}
+                        <div class="col-3 {{ bold }}">{{ message.sender.pseudo }}</div>
+                        <div class="col-3 {{ bold }}"><a href="{{ path("read",{"id":message.id}) }}">{{ message.title }}</a></div>
+                        <div class="col-3 {{ bold }}">{{ message.createdAt|date }}</div>
+                        <div class="col-3"><a href="{{ path("delete-message",{"id":message.id}) }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-danger bi bi-file-x-fill" viewBox="0 0 16 16">
+                                    <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6.854 6.146 8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 1 1 .708-.708z"/>
+                                </svg></a></div>
+                    {% endfor %}
+                    <div class="col">
+                        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                            See messages
+                        </a>
+                    </div>
                 </div>
-                <div class="col-3">From</div>
-                <div class="col-3">Subject</div>
-                <div class="col-3">Date</div>
-                <div class="col-3">Delete</div>
-                {% for message in app.user.received %}
-                    {% if message.isRead ==0 %}
-                        {% set bold = "fw-bold" %}
-                    {% else %}
-                        {% set bold ="" %}
-                    {% endif %}
-                    <div class="col-3 {{ bold }}">{{ message.sender.pseudo }}</div>
-                    <div class="col-3 {{ bold }}"><a href="{{ path("read",{"id":message.id}) }}">{{ message.title }}</a></div>
-                    <div class="col-3 {{ bold }}">{{ message.createdAt|date }}</div>
-                    <div class="col-3"><a href="{{ path("delete-message",{"id":message.id}) }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-danger bi bi-file-x-fill" viewBox="0 0 16 16">
-                                <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6.854 6.146 8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 1 1 .708-.708z"/>
-                            </svg></a></div>
-                {% endfor %}
-                <div class="col">
-                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                        See messages
-                    </a>
+            </div>
+        </section>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h4 class="offcanvas-title" id="offcanvasExampleLabel">Mailbox</h4>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="list-group">
+                    <a href="{{ path('messages') }}" class="list-group-item list-group-item-action">Reception</a>
+                </div>
+                <div class="list-group">
+                    <a href="{{ path('received') }}" class="list-group-item list-group-item-action active">Messages received</a>
+                </div>
+                <div class="list-group">
+                    <a href="{{ path('sent') }}" class="list-group-item list-group-item-action">Messages sent</a>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h4 class="offcanvas-title" id="offcanvasExampleLabel">Mailbox</h4>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="list-group">
-                <a href="{{ path('messages') }}" class="list-group-item list-group-item-action">Reception</a>
-            </div>
-            <div class="list-group">
-                <a href="{{ path('received') }}" class="list-group-item list-group-item-action active">Messages received</a>
-            </div>
-            <div class="list-group">
-                <a href="{{ path('sent') }}" class="list-group-item list-group-item-action">Messages sent</a>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+    {% endblock %}
 
-{% block footer %}
-{% endblock %}
+    {% block footer %}
+    {% endblock %}

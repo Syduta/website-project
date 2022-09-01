@@ -1,29 +1,29 @@
 {% extends 'base.html.twig' %}
-{% block title %}Forums{% endblock %}
-{% block main %}
+    {% block title %}Forums{% endblock %}
+    {% block main %}
 
-    {% for forum in forums %}
+        {% for forum in forums %}
 
-        <article class="forums-article">
-            <a href="{{ path('forum',{'id':forum.id}) }}">
-            <h2>{{ forum.title }}</h2>
-            <div class="offset-2 col-8 text-center">
-            {% if forum.picture %}
-                <img src="{{ asset('uploads/images/'~forum.picture) }}" alt="picture of the subject">
+            <article class="forums-article">
+                <a href="{{ path('forum',{'id':forum.id}) }}">
+                <h2>{{ forum.title }}</h2>
+                <div class="offset-2 col-8 text-center">
+                    {% if forum.picture %}
+                        <img src="{{ asset('uploads/images/'~forum.picture) }}" alt="picture of the subject">
+                    {% endif %}
+                    </a>
+                    <p>{{ forum.content }}</p>
+            </article>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="admin">
+        {#                <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>#}
+                        <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
+                    </div>
+                </div>
             {% endif %}
-            </a>
-            <p>{{ forum.content }}</p>
-        </article>
-        {% if is_granted('ROLE_ADMIN') %}
-            <div class="admin">
-{#                <li><a href="{{ path('admin-delete-forum',{'id':forum.id}) }}">Delete forum</a></li>#}
-                <li><a href="{{ path('admin-update-forum',{'id':forum.id}) }}">Update forum</a></li>
-            </div>
-            </div>
-        {% endif %}
 
-    {% endfor %}
-    <div class="pagination">{{ knp_pagination_render(forums) }}</div>
+        {% endfor %}
+        <div class="pagination">{{ knp_pagination_render(forums) }}</div>
 
 
-{% endblock %}
+    {% endblock %}

@@ -1,41 +1,41 @@
 {% extends 'base.html.twig' %}
-{% block title %}Messages Received{% endblock %}
-{% block main %}
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3>Mailbox</h3>
-                    <h4>Title : {{ message.title }}</h4>
-                    <p>from : {{ message.sender.pseudo }}</p>
-                    <p>received the {{ message.createdAt|date }}</p>
-                    <div><h4>Content : {{ message.message }}</h4></div>
-                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                        See messages
-                    </a>
-                    <a href="{{ path("received") }}">Return to inbox</a>
+    {% block title %}Messages Received{% endblock %}
+    {% block main %}
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Mailbox</h3>
+                        <h4>Title : {{ message.title }}</h4>
+                        <p>from : {{ message.sender.pseudo }}</p>
+                        <p>received the {{ message.createdAt|date }}</p>
+                        <div><h4>Content : {{ message.message }}</h4></div>
+                        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                            See messages
+                        </a>
+                        <a href="{{ path("received") }}">Return to inbox</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h4 class="offcanvas-title" id="offcanvasExampleLabel">Mailbox</h4>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="list-group">
+                    <a href="{{ path('messages') }}" class="list-group-item list-group-item-action">Reception</a>
+                </div>
+                <div class="list-group">
+                    <a href="{{ path('received') }}" class="list-group-item list-group-item-action active">Messages received</a>
+                </div>
+                <div class="list-group">
+                    <a href="{{ path('sent') }}" class="list-group-item list-group-item-action">Messages sent</a>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h4 class="offcanvas-title" id="offcanvasExampleLabel">Mailbox</h4>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="list-group">
-                <a href="{{ path('messages') }}" class="list-group-item list-group-item-action">Reception</a>
-            </div>
-            <div class="list-group">
-                <a href="{{ path('received') }}" class="list-group-item list-group-item-action active">Messages received</a>
-            </div>
-            <div class="list-group">
-                <a href="{{ path('sent') }}" class="list-group-item list-group-item-action">Messages sent</a>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+    {% endblock %}
 
-{% block footer %}
-{% endblock %}
+    {% block footer %}
+    {% endblock %}
