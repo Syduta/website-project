@@ -28,7 +28,7 @@
                 <button class="hide-button"><a href="{{ path('hide-subject',{'id':subject.id}) }}">Hide subject</a></button>
             {% endif %}
         {% endif %}
-
+        <h3 class="text-center">Comments :</h3>
         {% for comment in subject.comment %}
         {% if comment.isPublished %}
         <div id="comment">

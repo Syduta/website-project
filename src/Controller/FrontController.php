@@ -164,7 +164,7 @@ class FrontController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success','profile updated');
         }
-        return $this->render("front/update-profile.html.twig",['form'=>$form->createView()]);
+        return $this->render("front/update-profile.html.twig",['form'=>$form->createView(),'user'=>$user]);
     }
 
     /**
