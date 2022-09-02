@@ -19,11 +19,13 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+
 
 
 class FrontController extends AbstractController
@@ -140,6 +142,7 @@ class FrontController extends AbstractController
 
     /**
      * @Route("/update-profile",name="update-profile")
+     * @IsGranted("ROLE_USER")
      */
 
     public function updateProfile( Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger,

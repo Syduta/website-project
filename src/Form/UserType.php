@@ -30,7 +30,9 @@ class UserType extends AbstractType
                 'second_options'=>['label'=>'Repeat password'],
             ])
             ->add('email', EmailType::class)
-            ->add('picture',FileType::class,['mapped'=>false])
+            ->add('picture',FileType::class,[
+                'mapped'=>false,
+            ])
             ->add('submit',SubmitType::class)
         ;
     }
