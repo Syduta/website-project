@@ -106,6 +106,7 @@ class FrontController extends AbstractController
 
     /**
      * @Route("/comment/{id}",name="comment")
+     * @IsGranted("ROLE_USER")
      */
 
     public function comment($id, EntityManagerInterface $entityManager, Request $request, SubjectRepository $subjectRepository)
@@ -172,6 +173,7 @@ class FrontController extends AbstractController
 
     /**
      * @Route("/messages",name="messages")
+     * @IsGranted("ROLE_USER")
      */
 
     public function messages(){
@@ -181,6 +183,7 @@ class FrontController extends AbstractController
     // Création de l'url et du nom que l'on pourra rappeler dans nos templates
     /**
      * @Route("/send",name="send")
+     * @IsGranted("ROLE_USER")
      */
     // Création de la fonction "envoyer message", on injecte les instances qui vont nous servir par la suite
     public function sendMessage(Request $request, EntityManagerInterface $entityManager){
@@ -212,6 +215,7 @@ class FrontController extends AbstractController
 
     /**
      * @Route("/received",name="received")
+     * @IsGranted("ROLE_USER")
      */
 
     public function receivedMessage(){
@@ -220,6 +224,7 @@ class FrontController extends AbstractController
 
     /**
      * @Route("/read/{id}",name="read")
+     * @IsGranted("ROLE_USER")
      */
 
     public function readMessage(Message $message,EntityManagerInterface $entityManager){
@@ -231,6 +236,7 @@ class FrontController extends AbstractController
 
     /**
      * @Route("/delete-message/{id}",name="delete-message")
+     * @IsGranted("ROLE_USER")
      */
 
     public function deleteMessage(Message $message,EntityManagerInterface $entityManager){
@@ -241,6 +247,7 @@ class FrontController extends AbstractController
 
     /**
      * @Route("/sent",name="sent")
+     * @IsGranted("ROLE_USER")
      */
 
     public function sentMessage()
