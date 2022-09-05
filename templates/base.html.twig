@@ -30,7 +30,7 @@
                     </li>
                 <li class="connexion"><a href="{{ path('connexion') }}">Connexion</a></li>
                 <li>{% if app.user %}
-                            <a href="{{ path('update-profile') }}">
+                            <a href="{{ path('messages') }}">
                                 <img class="user-img" src="{{ asset('uploads/images/'~app.user.picture) }}" alt="">
                             </a>
                         </h3>
