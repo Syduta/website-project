@@ -7,8 +7,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class GameApi
 {
     private $httpClient;
-    //je crée un client avec un constructeur pour pouvoir le rappeler plus facilement par la suite
-    // on injecte httpclientinterface pour pouvoir avoir accès au client
+    //je crée un constructeur pour pouvoir faire appel à l'api
     public function __construct(HttpClientInterface $httpClient)
     {
         $this->httpClient = $httpClient;
