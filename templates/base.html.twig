@@ -46,7 +46,7 @@
             <ul>
                 <li class="logo-burg"><a href="{{ path('home') }}"><img class="logo logo-burg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CD_autolev_crop.jpg/200px-CD_autolev_crop.jpg" alt=""></a></li>
                 <a id="burger"><img class="logoburger" src="https://icon-library.com/images/hamburger-menu-icon-png-white/hamburger-menu-icon-png-white-10.jpg" alt=""></a>
-                <ul class="menu-burg">
+                <ul class="menu-burg d-none">
                         <div  class="li-connexion d-none">
                             {% if not app.user %}<li><a href="{{ path('sign-in') }}">Sign-in</a></li>{% endif %}
                             {% if not app.user %}<li><a href="{{ path('log-in') }}">Log-in</a></li>{% endif %}
