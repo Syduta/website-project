@@ -194,4 +194,13 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('forums');
     }
+
+
+    /**
+     * @Route("/admin/create-admin",name="admin-create-admin")
+     */
+
+    public function createAdmin(){
+        dd('coucou admin');
+    }
 }
