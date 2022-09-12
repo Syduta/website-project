@@ -22,8 +22,16 @@ class ActualityType extends AbstractType
                 'mapped'=>false,
                 'constraints'=>[
                     new \Symfony\Component\Validator\Constraints\File([
-                        'maxSize' => '30000k',
-                        'maxSizeMessage' => "Your file should be less than 30Mo"
+                        'maxSize' => '10000k',
+                        'maxSizeMessage' => "Your file should be less than 10Mo",
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+//                            'application/zip',
+//                           'application/x-7z-compressed',
+//                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Your file should be png or jpeg',
                     ])
             ]])
             ->add('submit',SubmitType::class)

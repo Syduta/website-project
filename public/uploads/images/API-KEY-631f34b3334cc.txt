@@ -1,0 +1,34 @@
+7146302c5fd744509641167c9814fc5e
+
+token github : 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
+
+
+public function createSubject(EntityManagerInterface $entityManager, Request $request, ){
+        $subject = new Subject();
+        $subject->setUser($this->getUser());
+
+        $form = $this->createForm(SubjectType::class, $subject);
+        $form->handleRequest($request);
+        if($form->isSubmitted()&&$form->isValid()){
+            $entityManager->persist();
+            $entityManager->flush();
+            $this->addFlash('success','subject added');
+        }
+    }
+
+
+IsGranted symfony
+Les objets sont traduits en sql
+
+référencement naturel description
+balises html 5
+un h1
+header
+main
+footer
+
+sections dedans
+
+vulnérabilités back
+injection sql
+cross origin
