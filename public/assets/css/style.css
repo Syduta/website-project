@@ -29,6 +29,10 @@ nav a:hover {
   border-radius: 1rem;
 }
 
+.create-admin button {
+  background-color: darkred;
+}
+
 .user-img {
   height: 1.5rem;
   border-radius: 50%;

@@ -32,7 +32,12 @@ class UserType extends AbstractType
             ->add('email', EmailType::class)
             ->add('picture',FileType::class,[
                 'mapped'=>false,
-            ])
+                'constraints'=>[
+                    new \Symfony\Component\Validator\Constraints\File([
+                        'maxSize' => '30000k',
+                    'maxSizeMessage' => "Your file should be less than 30Mo"
+                ])
+            ]])
             ->add('submit',SubmitType::class)
         ;
     }

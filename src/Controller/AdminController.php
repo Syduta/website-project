@@ -13,6 +13,7 @@ use App\Repository\ActualityRepository;
 use App\Repository\CommentRepository;
 use App\Repository\ForumRepository;
 use App\Repository\SubjectRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -200,7 +201,41 @@ class AdminController extends AbstractController
      * @Route("/admin/create-admin",name="admin-create-admin")
      */
 
-    public function createAdmin(){
-        dd('coucou admin');
+    public function listAdmin(UserRepository $userRepository){
+        $users = $userRepository->findAll();
+        return $this->render('admin/create-admin.html.twig',['users'=>$users]);
+
+    }
+
+    /**
+     * @Route("/admin/new-admin/{id}",name="admin-new-admin")
+     */
+
+    public function createAdmin($id, UserRepository $userRepository, EntityManagerInterface $entityManager){
+        $user = $userRepository->find($id);
+        if(!is_null($user)){
+            $user->setRoles(['ROLE_ADMIN']);
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash('success','admin created');
+        }
+        return $this->redirectToRoute('home');
+
+    }
+
+    /**
+     * @Route("/admin/fire-admin/{id}",name="admin-fire-admin")
+     */
+
+    public function fireAdmin($id, UserRepository $userRepository, EntityManagerInterface $entityManager){
+        $user = $userRepository->find($id);
+        if(!is_null($user)){
+            $user->setRoles(['ROLE_USER']);
+            $entityManager->persist($user);
+            $entityManager->flush();
+            $this->addFlash('success','admin fired');
+        }
+        return $this->redirectToRoute('home');
+
     }
 }
