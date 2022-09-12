@@ -2,7 +2,7 @@
 {% block main %}
     {% for user in users %}
         <div class="offset-2 col-2 create-admin">
-            <p>{{ user.pseudo }}</p>
+            <p>{{ user.pseudo }} role : {{ user.roles|join(', ') }}</p>
             <button><a href="{{ path("admin-new-admin",{'id':user.id}) }}">Grant Admin</a></button>
             <button><a href="{{ path("admin-fire-admin",{'id':user.id}) }}">Fire Admin</a></button>
         </div>

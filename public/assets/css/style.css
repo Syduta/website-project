@@ -31,6 +31,7 @@ nav a:hover {
 
 .create-admin button {
   background-color: darkred;
+  margin-bottom: 3rem;
 }
 
 .user-img {
